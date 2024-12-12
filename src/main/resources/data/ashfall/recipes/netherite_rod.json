@@ -1,0 +1,18 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  n",
+    " n ",
+    "n  "
+  ],
+  "key": {
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "ashfall:netherite_rod",
+    "count": 1
+  }
+}

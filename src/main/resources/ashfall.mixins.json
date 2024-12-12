@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "io.github.jadedchara.ashfall.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ExampleMixin",
+    "SculkCatalystMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

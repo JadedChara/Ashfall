@@ -1,0 +1,21 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "mmm",
+    "mnm",
+    "mmm"
+  ],
+  "key": {
+    "n": {
+      "item": "ashfall:netherite_rod"
+    },
+    "m": {
+      "item": "ashfall:blaze_dust"
+    }
+  },
+  "result": {
+    "item": "ashfall:blaze_netherite_rod",
+    "count": 1
+  }
+}

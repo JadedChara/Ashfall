@@ -1,0 +1,30 @@
+{
+	"itemGroup.ashfall.ashfall_gear": "Ashfall Gear",
+	"itemGroup.ashfall.ashfall_blocks": "Ashfall Blocks",
+	"itemGroup.ashfall.ashfall_entities": "Ashfall Entities",
+	"itemGroup.ashfall.ashfall_utilities": "Ashfall Utilities",
+	"itemGroup.ashfall.ashfall_food": "Ashfall Food",
+	"itemGroup.ashfall.ashfall_oddities": "Ashfall Oddities",
+	"itemGroup.ashfall.ashfall_items": "Ashfall",
+
+
+
+	"item.ashfall.reinforced_shears": "Reinforced Shears",
+	"item.ashfall.hardened_sculk_tendrils": "Hardened Sculk Tendrils",
+	"item.ashfall.sculk_residue": "Sculk Residue",
+	"item.ashfall.sculk_spores": "Sculk Spores",
+	"item.ashfall.netherite_rod": "Netherite Rod",
+	"item.ashfall.proxy_of_judgement": "Proxy Of Judgement",
+	"item.ashfall.grid_tethers": "Tethers Of The Grid",
+	"item.ashfall.spatial_anchor": "Spatial Anchor",
+	"item.ashfall.sculk_netherite_rod": "Sculk-Infused Netherite Rod",
+	"item.ashfall.blaze_netherite_rod": "Blaze-Infused Netherite Rod",
+	"item.ashfall.reaper_talisman": "The Reaper's Talisman",
+
+	"block.ashfall.celestial_lance": "Celestial Lance",
+	"block.ashfall.warding_pillar": "Pillars Of Warding",
+
+	"enchantment.ashfall.harvest": "Harvest",
+	"enchantment.ashfall.dread": "Dread",
+	"enchantment.ashfall.infectious": "Infectious"
+}
