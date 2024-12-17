@@ -1,0 +1,153 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/cube_all",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "ashfall:block/mortar_n_pestle",
+		"particle": "ashfall:block/mortar_n_pestle"
+	},
+	"elements": [
+		{
+			"name": "mortar",
+			"from": [4, 0, 4],
+			"to": [12, 1, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [8, 1.5, 12, 2], "texture": "#0"},
+				"east": {"uv": [8, 2, 12, 2.5], "texture": "#0"},
+				"south": {"uv": [8, 2.5, 12, 3], "texture": "#0"},
+				"west": {"uv": [8, 3, 12, 3.5], "texture": "#0"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 4, 0, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "mortar",
+			"from": [3, 1, 4],
+			"to": [4, 6, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.5, 8, 4, 10.5], "texture": "#0"},
+				"east": {"uv": [4, 0, 8, 2.5], "texture": "#0"},
+				"south": {"uv": [8.5, 3.5, 9, 6], "texture": "#0"},
+				"west": {"uv": [4, 2.5, 8, 5], "texture": "#0"},
+				"up": {"uv": [3, 12, 2.5, 8], "texture": "#0"},
+				"down": {"uv": [3.5, 8, 3, 12], "texture": "#0"}
+			}
+		},
+		{
+			"name": "mortar",
+			"from": [4, 1, 3],
+			"to": [12, 6, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 2, 8]},
+			"faces": {
+				"north": {"uv": [4, 2.5, 8, 5], "texture": "#0"},
+				"east": {"uv": [3.5, 8, 4, 10.5], "texture": "#0"},
+				"south": {"uv": [4, 0, 8, 2.5], "texture": "#0"},
+				"west": {"uv": [8.5, 3.5, 9, 6], "texture": "#0"},
+				"up": {"uv": [3, 12, 2.5, 8], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [3.5, 8, 3, 12], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "mortar",
+			"from": [12, 1, 4],
+			"to": [13, 6, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 2, 8]},
+			"faces": {
+				"north": {"uv": [8.5, 3.5, 9, 6], "texture": "#0"},
+				"east": {"uv": [4, 2.5, 8, 5], "texture": "#0"},
+				"south": {"uv": [3.5, 8, 4, 10.5], "texture": "#0"},
+				"west": {"uv": [4, 0, 8, 2.5], "texture": "#0"},
+				"up": {"uv": [3, 12, 2.5, 8], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [3.5, 8, 3, 12], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "mortar",
+			"from": [4, 1, 12],
+			"to": [12, 6, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 2, 8]},
+			"faces": {
+				"north": {"uv": [4, 0, 8, 2.5], "texture": "#0"},
+				"east": {"uv": [8.5, 3.5, 9, 6], "texture": "#0"},
+				"south": {"uv": [4, 2.5, 8, 5], "texture": "#0"},
+				"west": {"uv": [3.5, 8, 4, 10.5], "texture": "#0"},
+				"up": {"uv": [3, 12, 2.5, 8], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [3.5, 8, 3, 12], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "pestle",
+			"from": [6.5, 1.5, 4.5],
+			"to": [9.5, 6.5, 7.5],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [8, 0, 6]},
+			"faces": {
+				"north": {"uv": [4, 5, 5.5, 7.5], "texture": "#0"},
+				"east": {"uv": [5.5, 5, 7, 7.5], "texture": "#0"},
+				"south": {"uv": [7, 5, 8.5, 7.5], "texture": "#0"},
+				"west": {"uv": [4, 7.5, 5.5, 10], "texture": "#0"},
+				"up": {"uv": [9.5, 1.5, 8, 0], "texture": "#0"},
+				"down": {"uv": [2.5, 8, 1, 9.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "pestle",
+			"from": [7, 5.5, 5],
+			"to": [9, 10.5, 7],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [8, 0, 6]},
+			"faces": {
+				"north": {"uv": [5.5, 7.5, 6.5, 10], "texture": "#0"},
+				"east": {"uv": [6.5, 7.5, 7.5, 10], "texture": "#0"},
+				"south": {"uv": [7.5, 7.5, 8.5, 10], "texture": "#0"},
+				"west": {"uv": [0, 8, 1, 10.5], "texture": "#0"},
+				"up": {"uv": [9.5, 7, 8.5, 6], "texture": "#0"},
+				"down": {"uv": [9.5, 7, 8.5, 8], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 4.5, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 4.5, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -43, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, 0]
+		},
+		"ground": {
+			"translation": [0, 3.25, 0]
+		},
+		"gui": {
+			"rotation": [35, 45, 0],
+			"translation": [0, 3.5, 0]
+		},
+		"head": {
+			"translation": [0, 14.75, 0]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -6.75]
+		}
+	},
+	"groups": [
+		{
+			"name": "mortar",
+			"origin": [8, 2.5, 3.5],
+			"color": 0,
+			"children": [0, 1, 2, 3, 4]
+		},
+		{
+			"name": "pestle",
+			"origin": [8, 1.5, 8],
+			"color": 1,
+			"children": [5, 6]
+		}
+	]
+}

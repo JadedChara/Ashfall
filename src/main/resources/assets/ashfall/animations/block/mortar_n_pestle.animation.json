@@ -37,6 +37,20 @@
 					}
 				}
 			}
+		},
+		"animation.mortar_n_pestle.grindfixed": {
+			"animation_length": 1,
+			"bones": {
+				"pestle": {
+					"position": {
+						"0.0":[-2.5, 0, -2.5],
+						"0.25":[2.5, 0, -2.5],
+						"0.5":[2.5, 0, 2.5],
+						"0.75":[-2.5, 0, 2.5],
+						"1.0":[-2.5, 0, -2.5]
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

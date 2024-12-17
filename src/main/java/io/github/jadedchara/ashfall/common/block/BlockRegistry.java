@@ -28,7 +28,13 @@ public class BlockRegistry {
     }
     //Blocks
     public static final MortarNPestleBlock MORTAR_N_PESTLE =
-            (MortarNPestleBlock) bRegister(new MortarNPestleBlock(AbstractBlock.Settings.copy(Blocks.STONE).dynamicBounds()),
+            (MortarNPestleBlock) bRegister(new MortarNPestleBlock(
+                    AbstractBlock.Settings.copy(
+                            Blocks.STONE)
+                            .dynamicBounds()
+                            .nonOpaque()
+                            .requiresTool()
+                    ),
                     "mortar_n_pestle",
                     ItemRegistry.UTILITIES
                     );

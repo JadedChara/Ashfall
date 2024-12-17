@@ -1,27 +1,48 @@
 package io.github.jadedchara.ashfall.client.model;
 
 import io.github.jadedchara.ashfall.common.Ashfall;
+import io.github.jadedchara.ashfall.common.block.blockentity.MortarNPestleBlockEntity;
 import net.minecraft.util.Identifier;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.model.GeoModel;
+//import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.model.DefaultedBlockGeoModel;
 
-public class MNPBlockModel extends GeoModel {
-    public Identifier MODEL = Identifier.of(Ashfall.MOD_ID,"geo/block/mortar_n_pestle.geo.json");
-    public Identifier TEXTURE = Identifier.of(Ashfall.MOD_ID,"textures/block/mortar_n_pestle.png");
-    public Identifier ANIMATION = Identifier.of(Ashfall.MOD_ID,"animations/block/mortar_n_pestle.animation.json");
+public class MNPBlockModel extends DefaultedBlockGeoModel<MortarNPestleBlockEntity> {
+    public Identifier MODEL = buildFormattedModelPath(
+            new Identifier(
+                    Ashfall.MOD_ID,
+                    "mortar_n_pestle"
+            )
+    );
+    public Identifier TEXTURE = buildFormattedTexturePath(
+            new Identifier(
+                    Ashfall.MOD_ID,
+                    "mortar_n_pestle"
+            )
+    );
+    public Identifier ANIMATION = buildFormattedAnimationPath(
+            new Identifier(
+                    Ashfall.MOD_ID,
+                    "mortar_n_pestle"
+            )
+    );
+
+    public MNPBlockModel() {
+        super(new Identifier(Ashfall.MOD_ID,"mortar_n_pestle"));
+        //this.get
+    }
 
     @Override
-    public Identifier getModelResource(GeoAnimatable ga) {
+    public Identifier getModelResource(MortarNPestleBlockEntity ga) {
         return MODEL;
     }
 
     @Override
-    public Identifier getTextureResource(GeoAnimatable ga) {
+    public Identifier getTextureResource(MortarNPestleBlockEntity ga) {
         return TEXTURE;
     }
 
     @Override
-    public Identifier getAnimationResource(GeoAnimatable ga) {
+    public Identifier getAnimationResource(MortarNPestleBlockEntity ga) {
         return ANIMATION;
     }
 }

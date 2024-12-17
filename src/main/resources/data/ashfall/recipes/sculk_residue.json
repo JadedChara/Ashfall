@@ -1,0 +1,16 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : {
+    "item": "ashfall:hardened_sculk_tendrils"
+  },
+  "mixComponentA": {
+    "item": "minecraft:air"
+  },
+  "mixComponentB": {
+    "item": "minecraft:air"
+  },
+  "output": "minecraft:stone",
+  "experience": 10,
+  "grindtime": 5
+
+}

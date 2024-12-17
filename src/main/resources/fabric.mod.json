@@ -2,6 +2,11 @@
 	"schemaVersion": 1,
 	"id": "ashfall",
 	"version": "${version}",
+	"custom": {
+		"cardinal-components": [
+			"ashfall:mnp"
+		]
+	},
 	"name": "Ashfall",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
@@ -20,6 +25,9 @@
 		],
 		"client": [
 			"io.github.jadedchara.ashfall.client.AshfallClient"
+		],
+		"cardinal-components-block": [
+			"io.github.jadedchara.ashfall.cca.ComponentInit"
 		]
 	},
 	"mixins": [
