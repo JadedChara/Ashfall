@@ -35,12 +35,7 @@ public class MortarNPestleBlock extends BlockWithEntity implements BlockEntityPr
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        /*if(this.entity != null){
-            return this.entity.primeTicker;
-        }else{*/
-            return super.getTicker(world,state,type);
-        //}
-
+        return super.getTicker(world,state,type);
     }
     @Nullable
     @Override

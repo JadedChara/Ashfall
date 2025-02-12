@@ -53,11 +53,12 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
     @Override
     public void write(PacketByteBuf packetData, MortarRecipe recipe) {
         recipe.getInput().write(packetData);
+        recipe.getMixComponentA().write(packetData);
+        recipe.getMixComponentB().write(packetData);
         packetData.writeItemStack(recipe.getResult());
         packetData.writeInt(recipe.getExperience());
         packetData.writeInt(recipe.getGrindtime());
-        recipe.getMixComponentA().write(packetData);
-        recipe.getMixComponentB().write(packetData);
+
     }
 
     @Override
@@ -77,7 +78,6 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
     }
 
     public static final MortarSerializer INSTANCE = new MortarSerializer();
+    public static final Identifier ID = new Identifier("ashfall:mortar_n_pestle");
 
-    // This will be the "type" field in the json
-    public static final Identifier ID = new Identifier(Ashfall.MOD_ID,"mortar_n_pestle");
 }

@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MortarRecipe implements Recipe<SimpleInventory> {
+public class MortarRecipe implements Recipe<CraftingInventory> {
     public Identifier id;
     public Ingredient input;
     public Ingredient mixComponentA;
@@ -83,8 +83,8 @@ public class MortarRecipe implements Recipe<SimpleInventory> {
         return this.id;
     }
     @Override
-    public boolean matches(SimpleInventory inv, World world) {
-        if(world.isClient()) {
+    public boolean matches(CraftingInventory inv, World world) {
+        if(world.isClient() || inv.size() < 3) {
             return false;
         }
 
@@ -94,9 +94,10 @@ public class MortarRecipe implements Recipe<SimpleInventory> {
         );
     }
     @Override
-    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager rm) {
-        //inventory.setStack(4,this.getResult());
-        return output;
+    public ItemStack craft(CraftingInventory inventory, DynamicRegistryManager rm) {
+        //System.out.println("Match found!");
+        //return this.output.copy();
+        return this.output;
     }
     @Override
     public boolean fits(int width, int height) {
@@ -120,6 +121,7 @@ public class MortarRecipe implements Recipe<SimpleInventory> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "mortar_recipe";
     }
+
 
     @Override
     public RecipeType<?> getType() {

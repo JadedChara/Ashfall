@@ -14,6 +14,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
@@ -123,7 +124,7 @@ public class MortarNPestleBlockEntity extends BlockEntity implements GeoBlockEnt
     }
     @Override
     public ScreenHandler createMenu(int id, PlayerInventory pi, PlayerEntity p) {
-        return new MNPScreenHandler(Ashfall.MNP_SCREEN_HANDLER,id,this,pi);
+        return new MNPScreenHandler(Ashfall.MNP_SCREEN_HANDLER,id,this,pi,this.pos);
     }
     @Override
     public Text getDisplayName() {
@@ -140,33 +141,7 @@ public class MortarNPestleBlockEntity extends BlockEntity implements GeoBlockEnt
         super.markDirty();
     }
 
-    public  void coreTick(World world, BlockPos pos, BlockState state){
-        if(world.isClient()) {
-            return;
-        }
-        Optional<MortarRecipe> test = world.getRecipeManager().getFirstMatch(Ashfall.MNP_TYPE,
-                new SimpleInventory(
-                        this.getStack(0),
-                        this.getStack(1),
-                        this.getStack(2),
-                        this.getStack(3)
-                ),world);
-        if(test.isPresent() && !test.equals(Optional.empty()) && this.getStack(3) != ItemStack.EMPTY){
-            this.currentRecipe = test.get();
-            //System.out.println(this.currentRecipe);
-            this.setStack(3,this.currentRecipe.getResult().copy());
-        }
-    }
-    public BlockEntityTicker primeTicker = (
-            world,
-            pos,
-            state,
-            blockEntity
-    ) -> ((MortarNPestleBlockEntity)blockEntity).coreTick(
-            world,
-            pos,
-            state
-    );
+
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);

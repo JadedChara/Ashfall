@@ -46,7 +46,7 @@ public class Ashfall implements ModInitializer {
 		Registry.register(
 				Registries.RECIPE_TYPE,
 				new Identifier(Ashfall.MOD_ID, MortarRecipe.Type.ID),
-				MNP_TYPE
+				MortarRecipe.Type.INSTANCE
 		);
 	}
 }
