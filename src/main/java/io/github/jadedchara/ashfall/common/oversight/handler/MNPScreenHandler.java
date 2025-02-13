@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-public class MNPScreenHandler extends AbstractRecipeScreenHandler<CraftingInventory> {
+public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInventory> {
 
     @Override
     public void populateRecipeFinder(RecipeMatcher finder) {
@@ -32,8 +32,9 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<CraftingInvent
         this.input.clear();
         this.output.clear();
     }
+
     @Override
-    public boolean matches(Recipe<? super CraftingInventory> recipe) {
+    public boolean matches(Recipe<? super RecipeInputInventory> recipe) {
         return recipe.matches(this.input, this.world);
     }
     @Override

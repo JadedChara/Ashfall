@@ -8,10 +8,7 @@ import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
@@ -84,20 +81,24 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
     }
     @Override
     public boolean matches(CraftingInventory inv, World world) {
-        if(world.isClient() || inv.size() < 3) {
-            return false;
-        }
+        if(!world.isClient()/* || inv.size() < 3*/) {
+            //return false;
+        //}
 
         return (recipeItems.get(0).test(inv.getStack(0))&&
                 recipeItems.get(1).test(inv.getStack(1))&&
                 recipeItems.get(2).test(inv.getStack(2))
+
         );
+        }
+        return false;
     }
     @Override
     public ItemStack craft(CraftingInventory inventory, DynamicRegistryManager rm) {
         //System.out.println("Match found!");
         //return this.output.copy();
-        return this.output;
+        return this.getOutput(rm).copy();
+        //ShapedRecipe
     }
     @Override
     public boolean fits(int width, int height) {
