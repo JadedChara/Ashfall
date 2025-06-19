@@ -5,9 +5,17 @@
   "mixins": [
     "DeOpMixin",
     "ExampleMixin",
-    "SculkCatalystMixin"
+    "InventoryLock",
+    "NeckLockMixin",
+    "SculkCatalystMixin",
+    "ViewLockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "client": [
+    "HandLockMixin",
+    "ParalysisMixin",
+    "PlayerNeckLockMixin"
+  ]
 }

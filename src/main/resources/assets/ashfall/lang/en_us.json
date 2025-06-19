@@ -24,8 +24,12 @@
 	"block.ashfall.mortar_n_pestle": "Mortar N' Pestle",
 	"block.ashfall.celestial_lance": "Celestial Lance",
 	"block.ashfall.warding_pillar": "Pillars Of Warding",
+	"block.ashfall.accumulator": "Accumulator",
+	"block.ashfall.focusing_stone": "Focusing Stone",
 
 	"enchantment.ashfall.harvest": "Harvest",
 	"enchantment.ashfall.dread": "Dread",
-	"enchantment.ashfall.infectious": "Infectious"
+	"enchantment.ashfall.infectious": "Infectious",
+
+	"effect.ashfall.paralysis": "Paralysis"
 }

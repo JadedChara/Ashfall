@@ -73,22 +73,23 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
         @Override
         public int getHeight() {return 1;}
         @Override
-        public List<ItemStack> getInputStacks() {return List.of();}
+        public List<ItemStack> getInputStacks() {return super.getInputStacks();}
         @Override
         public int size() {return 3;}
         @Override
-        public boolean isEmpty() {return false;}
+        public boolean isEmpty() {return super.isEmpty();}
         @Override
         public ItemStack getStack(int slot) {return super.getStack(slot);}
         @Override
         public ItemStack removeStack(int slot, int amount) {
-            super.setStack(slot,super.getStack(slot).copyWithCount(amount));
-            return super.getStack(slot);
+            //super.getStack(slot).decrement(amount);
+            return super.removeStack(slot,amount);
         }
         @Override
         public ItemStack removeStack(int slot) {
-            super.setStack(slot, super.getStack(slot).copyAndEmpty());
-            return super.getStack(slot);
+            //super.setStack(slot, super.getStack(slot).copyAndEmpty());
+            //return super.getStack(slot);
+            return super.removeStack(slot);
         }
         @Override
         public void setStack(int slot, ItemStack stack) {
@@ -163,56 +164,32 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
             public int getMaxCountPerStack() {return 64;}
         },playerInventory,packetByteBuf.readBlockPos());
     }
-    /*public void setResult(ItemStack in){
-        this.input.setStack(3,in);
-    }*/
 
-    public ItemStack quickMove(PlayerEntity player, int slot) {
-        ItemStack itemStack = ItemStack.EMPTY;
-        Slot slot2 = (Slot)this.slots.get(slot);
-        if (slot2 != null && slot2.hasStack()) {
-            ItemStack itemStack2 = slot2.getStack();
-            itemStack = itemStack2.copy();
-            if (slot == 3) {
-                this.context.run((world, pos) -> {
-                    itemStack2.getItem().onCraft(itemStack2, world, player);
-                });
-                if (!this.insertItem(itemStack2, 4, 40, true)) {
+    @Override
+    public ItemStack quickMove(PlayerEntity player, int invSlot) {
+
+        ItemStack newStack = ItemStack.EMPTY;
+        Slot slot = this.slots.get(invSlot);
+        if (slot != null && slot.hasStack()) {
+            ItemStack originalStack = slot.getStack();
+            newStack = originalStack.copy();
+            if (invSlot < this.input.size()) {
+                if (!this.insertItem(originalStack, this.input.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-
-                slot2.onQuickTransfer(itemStack2, itemStack);
-            } else if (slot >= 4 && slot < 40) {
-                if (!this.insertItem(itemStack2, 0, 3, false)) {
-                    if (slot < 31) {
-                        if (!this.insertItem(itemStack2, 31, 40, false)) {
-                            return ItemStack.EMPTY;
-                        }
-                    } else if (!this.insertItem(itemStack2, 4, 31, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                }
-            } else if (!this.insertItem(itemStack2, 4, 40, false)) {
+            } else if (!this.insertItem(originalStack, 0, this.input.size(), false)) {
                 return ItemStack.EMPTY;
             }
 
-            if (itemStack2.isEmpty()) {
-                slot2.setStack(ItemStack.EMPTY);
+            if (originalStack.isEmpty()) {
+                slot.setStack(ItemStack.EMPTY);
             } else {
-                slot2.markDirty();
-            }
-
-            if (itemStack2.getCount() == itemStack.getCount()) {
-                return ItemStack.EMPTY;
-            }
-
-            slot2.onTakeItem(player, itemStack2);
-            if (slot == 3) {
-                player.dropItem(itemStack2, false);
+                slot.markDirty();
             }
         }
-
-        return itemStack;
+        this.updateResult(this.player,this.world,this.input,this.output);
+        return newStack;
+        
     }
 
     @Override
@@ -257,14 +234,17 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
         }
     }
 
-    protected void onTakeOutput(PlayerEntity player, ItemStack stack) {
+    protected void onTakeOutput(PlayerEntity p, ItemStack stack) {
         stack.onCraft(player.getWorld(), player, stack.getCount());
+        this.updateResult(p,this.world,this.input, this.output);
         //this.output.unlockLastRecipe(player);
-        //this.decrementStack(0);
-        //this.decrementStack(1);
-        this.input.removeStack(0,stack.getCount());
-        this.input.removeStack(1,stack.getCount());
-        this.input.removeStack(2,stack.getCount());
+        this.input.getStack(0).decrement(stack.getCount());
+        this.input.getStack(1).decrement(stack.getCount());
+        this.input.getStack(2).decrement(stack.getCount());
+
+        //this.input.removeStack(0,stack.getCount());
+        //this.input.removeStack(1,stack.getCount());
+        //this.input.removeStack(2,stack.getCount());
     }
     @Override
     public void onClosed(PlayerEntity player) {

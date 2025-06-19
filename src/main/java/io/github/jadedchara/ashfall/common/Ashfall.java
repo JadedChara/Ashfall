@@ -1,6 +1,7 @@
 package io.github.jadedchara.ashfall.common;
 
 import io.github.jadedchara.ashfall.common.block.BlockRegistry;
+import io.github.jadedchara.ashfall.common.effect.ParalysisEffect;
 import io.github.jadedchara.ashfall.common.item.ItemRegistry;
 import io.github.jadedchara.ashfall.common.oversight.handler.MNPScreenHandler;
 import io.github.jadedchara.ashfall.common.recipe.MortarRecipe;
@@ -8,6 +9,7 @@ import io.github.jadedchara.ashfall.common.recipe.serializers.MortarSerializer;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -31,6 +33,9 @@ public class Ashfall implements ModInitializer {
                     )
 			);
 
+	public static final StatusEffect PARALYSIS_EFFECT = new ParalysisEffect();
+
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -48,5 +53,12 @@ public class Ashfall implements ModInitializer {
 				new Identifier(Ashfall.MOD_ID, MortarRecipe.Type.ID),
 				MortarRecipe.Type.INSTANCE
 		);
+		Registry.register(
+				Registries.STATUS_EFFECT,
+				new Identifier(
+						"ashfall",
+						"paralysis"),
+				PARALYSIS_EFFECT);
+
 	}
 }
