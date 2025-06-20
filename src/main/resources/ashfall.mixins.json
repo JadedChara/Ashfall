@@ -5,7 +5,6 @@
   "mixins": [
     "DeOpMixin",
     "ExampleMixin",
-    "InventoryLock",
     "NeckLockMixin",
     "SculkCatalystMixin",
     "ViewLockMixin"
@@ -14,7 +13,9 @@
     "defaultRequire": 1
   },
   "client": [
+    "ClientLockMixin",
     "HandLockMixin",
+    "InventoryLockMixin",
     "ParalysisMixin",
     "PlayerNeckLockMixin"
   ]

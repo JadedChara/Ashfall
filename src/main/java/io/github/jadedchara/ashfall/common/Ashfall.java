@@ -13,8 +13,6 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.resource.featuretoggle.FeatureSet;
-import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -33,7 +31,11 @@ public class Ashfall implements ModInitializer {
                     )
 			);
 
+	//Effects
 	public static final StatusEffect PARALYSIS_EFFECT = new ParalysisEffect();
+
+	//Shaders
+
 
 
 	@Override
