@@ -6,6 +6,7 @@ import io.github.jadedchara.ashfall.common.item.ItemRegistry;
 import io.github.jadedchara.ashfall.common.oversight.handler.MNPScreenHandler;
 import io.github.jadedchara.ashfall.common.recipe.MortarRecipe;
 import io.github.jadedchara.ashfall.common.recipe.serializers.MortarSerializer;
+import ladysnake.satin.api.managed.ManagedShaderEffect;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
@@ -15,10 +16,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Ashfall implements ModInitializer {
+
 	public static final String MOD_ID = "ashfall";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static RecipeType<MortarRecipe> MNP_TYPE = MortarRecipe.Type.INSTANCE;
@@ -34,7 +37,6 @@ public class Ashfall implements ModInitializer {
 	//Effects
 	public static final StatusEffect PARALYSIS_EFFECT = new ParalysisEffect();
 
-	//Shaders
 
 
 
