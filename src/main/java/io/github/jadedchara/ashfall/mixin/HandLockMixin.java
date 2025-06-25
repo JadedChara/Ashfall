@@ -20,10 +20,10 @@ public class HandLockMixin {
     private void StopScroll(long w, double h, double v, CallbackInfo ci) {
         halt(ci);
     }
-    @Inject(method = "updateMouse", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "updateMouse", at = @At("HEAD"), cancellable = true)
     private void StopTurn(CallbackInfo ci) {
         halt(ci);
-    }
+    }*/
 
     public void halt(CallbackInfo c){
         try{

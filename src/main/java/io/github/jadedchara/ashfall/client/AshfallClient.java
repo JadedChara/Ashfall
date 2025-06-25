@@ -26,6 +26,12 @@ public class AshfallClient implements ClientModInitializer {
 					"shaders/post/paralysis.json"
 			)
 	);
+	public ManagedShaderEffect testShader = ShaderEffectManager.getInstance().manage(
+			new Identifier(
+					"ashfall",
+					"shaders/post/blurp.json"
+			)
+	);
 
 	@Override
 	public void onInitializeClient() {
@@ -35,19 +41,21 @@ public class AshfallClient implements ClientModInitializer {
 			try{
 				if(MinecraftClient.getInstance().player.hasStatusEffect(Ashfall.PARALYSIS_EFFECT)){
 					paralysisPerspective.render(td);
+				}else if (this.activeParalysis == true){
+					testShader.render(td);
 				}
 			}catch(Exception e){
 				//ignore
 			}
 		});
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
-			dispatcher.register(ClientCommandManager.literal("paralysisShader").executes(context -> {
-				context.getSource().sendFeedback(Text.literal("Disabled, currently"));
-				/*if(this.activeParalysis == true){
+			dispatcher.register(ClientCommandManager.literal("toggleshadertest").executes(context -> {
+				context.getSource().sendFeedback(Text.literal("Toggling test shader..."));
+				if(this.activeParalysis == true){
 					this.activeParalysis = false;
 				}else{
 					this.activeParalysis = true;
-				}*/
+				}
 				return 1;
 			}));
 
