@@ -14,14 +14,14 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.brewing.get_shroomlight.description"
+      "translate": "advancements.levelup.get_shroomlight.description"
     },
     "icon": {
       "count": 1,
       "id": "minecraft:shroomlight"
     },
     "title": {
-      "translate": "advancements.brewing.get_shroomlight.title"
+      "translate": "advancements.levelup.get_shroomlight.title"
     }
   },
   "requirements": [
