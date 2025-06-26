@@ -1,15 +1,14 @@
 {
   "blend": {
     "func": "add",
-    "srcrgb": "srcalpha",
-    "dstrgb": "1-srcalpha"
+    "srcrgb": "one",
+    "dstrgb": "zero"
   },
   "vertex": "ashfall:paralyze",
   "fragment": "ashfall:paralyze",
   "attributes": ["Position"],
   "samplers": [{
-    "name": "DiffuseSampler",
-    "name": "BlurSampler"
+    "name": "DiffuseSampler"
   }],
   "uniforms": [{
     "name": "ProjMat",
@@ -19,6 +18,12 @@
     },
     {
       "name": "OutSize",
+      "type": "float",
+      "count": 2,
+      "values": [1.0, 1.0]
+    },
+    {
+      "name": "InSize",
       "type": "float",
       "count": 2,
       "values": [1.0, 1.0]

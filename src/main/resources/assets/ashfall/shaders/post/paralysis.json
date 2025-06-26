@@ -1,0 +1,18 @@
+{
+  "targets": [
+    "swap"
+  ],
+  "passes": [
+
+    {
+      "name": "ashfall:paralyze",
+      "intarget": "minecraft:main",
+      "outtarget": "swap"
+    },
+    {
+      "name": "blit",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}
