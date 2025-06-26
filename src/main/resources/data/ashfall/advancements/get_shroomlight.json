@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:nether/brew_potion",
+  "criteria": {
+    "shroomlight": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:shroomlight"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.brewing.get_shroomlight.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:shroomlight"
+    },
+    "title": {
+      "translate": "advancements.brewing.get_shroomlight.title"
+    }
+  },
+  "requirements": [
+    [
+      "shroomlight"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
