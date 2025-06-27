@@ -4,8 +4,8 @@
     "srcrgb": "one",
     "dstrgb": "zero"
   },
-  "vertex": "ashfall:paralyze",
-  "fragment": "ashfall:paralyze",
+  "vertex": "ashfall:wardentouch",
+  "fragment": "ashfall:wardentouch",
   "attributes": ["Position"],
   "samplers": [{
     "name": "DiffuseSampler"
@@ -15,7 +15,7 @@
     "type": "matrix4x4",
     "count": 16,
     "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
-    },
+  },
     {
       "name": "OutSize",
       "type": "float",

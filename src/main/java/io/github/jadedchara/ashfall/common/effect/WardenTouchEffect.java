@@ -5,18 +5,15 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 
-public class ParalysisEffect extends StatusEffect {
-    public ParalysisEffect() {
-        super(StatusEffectCategory.HARMFUL, 0xa1a1a1);
+public class WardenTouchEffect extends StatusEffect {
+    public WardenTouchEffect() {
+        super(StatusEffectCategory.BENEFICIAL, 0x4dacb5);
     }
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {return true;}
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        if (entity instanceof PlayerEntity) {
-            entity.setMovementSpeed(0);
-            entity.setJumping(false);
-        }
+        //
     }
 }

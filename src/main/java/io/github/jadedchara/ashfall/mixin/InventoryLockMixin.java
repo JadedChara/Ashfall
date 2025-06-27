@@ -37,7 +37,7 @@ abstract class InventoryLockMixin{
 
                 if(
                         this.equals(o.attackKey)
-                                || this.equals(o.inventoryKey)
+                                /*|| this.equals(o.inventoryKey)*/
                                 || this.equals(o.hotbarKeys[0])
                                 || this.equals(o.hotbarKeys[1])
                                 || this.equals(o.hotbarKeys[2])

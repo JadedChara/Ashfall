@@ -31,5 +31,16 @@
 	"enchantment.ashfall.dread": "Dread",
 	"enchantment.ashfall.infectious": "Infectious",
 
-	"effect.ashfall.paralysis": "Paralysis"
+	"effect.ashfall.paralysis": "Paralysis",
+	"effect.ashfall.paralysis.description": "Inhibits movement and access to the inventory.",
+	"item.minecraft.tipped_arrow.effect.paralysis": "Arrow of Paralysis",
+	"item.minecraft.splash_potion.effect.paralysis": "Paralytic Splash Potion",
+	"item.minecraft.potion.effect.paralysis": "Paralytic Potion",
+	"item.minecraft.lingering_potion.effect.paralysis": "Paralytic Lingering Potion",
+	"effect.ashfall.warden_touch": "Warden's Touch",
+	"effect.ashfall.warden_touch.description": "Enhances the impacted being, and provides immunity to a Warden's Darkness.",
+	"item.minecraft.tipped_arrow.effect.warden_touch": "Arrow of Warden's Touch",
+	"item.minecraft.splash_potion.effect.warden_touch": "Splash Potion of Warden's Touch",
+	"item.minecraft.potion.effect.warden_touch": "Potion of Warden's Touch",
+	"item.minecraft.lingering_potion.effect.warden_touch": "Lingering Potion of Warden's Touch"
 }

@@ -5,7 +5,7 @@
   "passes": [
 
     {
-      "name": "ashfall:paralyze",
+      "name": "blit",
       "intarget": "minecraft:main",
       "outtarget": "swap",
       "uniforms": [
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "name": "ashfall:paralyze",
+      "name": "blit",
       "intarget": "swap",
       "outtarget": "minecraft:main",
       "uniforms": [

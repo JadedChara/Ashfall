@@ -26,10 +26,16 @@ public class AshfallClient implements ClientModInitializer {
 					"shaders/post/paralysis.json"
 			)
 	);
+	public ManagedShaderEffect wardentouchPerspective = ShaderEffectManager.getInstance().manage(
+			new Identifier(
+					"ashfall",
+					"shaders/post/wardentouch.json"
+			)
+	);
 	public ManagedShaderEffect testShader = ShaderEffectManager.getInstance().manage(
 			new Identifier(
 					"ashfall",
-					"shaders/post/blurp.json"
+					"shaders/post/paralysis.json"
 			)
 	);
 
@@ -41,6 +47,8 @@ public class AshfallClient implements ClientModInitializer {
 			try{
 				if(MinecraftClient.getInstance().player.hasStatusEffect(Ashfall.PARALYSIS_EFFECT)){
 					paralysisPerspective.render(td);
+				}else if(MinecraftClient.getInstance().player.hasStatusEffect(Ashfall.WARDEN_TOUCH_EFFECT)){
+					wardentouchPerspective.render(td);
 				}else if (this.activeParalysis == true){
 					testShader.render(td);
 				}
