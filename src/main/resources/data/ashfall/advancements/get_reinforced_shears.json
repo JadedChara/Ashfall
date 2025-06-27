@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:nether/brew_potion",
+  "parent": "minecraft:adventure/adventuring_time",
   "criteria": {
-    "shroomlight": {
+    "shearify": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:shroomlight"
+              "ashfall:reinforced_shears"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.levelup.get_shroomlight.description"
+      "translate": "advancements.levelup.get_reinforced_shears.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:shroomlight"
+      "item": "ashfall:reinforced_shears"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.levelup.get_shroomlight.title"
+      "translate": "advancements.levelup.get_reinforced_shears.title"
     }
   },
   "requirements": [
     [
-      "shroomlight"
+      "shearify"
     ]
   ],
   "sends_telemetry_event": true

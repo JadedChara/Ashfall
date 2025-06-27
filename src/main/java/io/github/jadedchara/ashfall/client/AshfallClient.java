@@ -14,6 +14,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -49,6 +50,7 @@ public class AshfallClient implements ClientModInitializer {
 					paralysisPerspective.render(td);
 				}else if(MinecraftClient.getInstance().player.hasStatusEffect(Ashfall.WARDEN_TOUCH_EFFECT)){
 					wardentouchPerspective.render(td);
+					//MinecraftClient.getInstance().player.removeStatusEffect(StatusEffects.DARKNESS);
 				}else if (this.activeParalysis == true){
 					testShader.render(td);
 				}

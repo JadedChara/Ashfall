@@ -1,0 +1,36 @@
+{
+  "parent": "ashfall:nether/get_sculk_tendrils",
+  "criteria": {
+    "huh": {
+      "conditions": {
+        "effects": {
+
+            "ashfall:warden_touch": {}
+
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.levelup.wardens_first_touch.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.levelup.wardens_first_touch.title"
+    }
+  },
+  "requirements": [
+    [
+      "huh"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
