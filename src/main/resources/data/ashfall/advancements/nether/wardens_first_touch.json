@@ -17,7 +17,7 @@
     "description": {
       "translate": "advancements.levelup.wardens_first_touch.description"
     },
-    "frame": "task",
+    "frame": "challenge",
     "hidden": false,
     "icon": {
       "item": "minecraft:sculk_catalyst"

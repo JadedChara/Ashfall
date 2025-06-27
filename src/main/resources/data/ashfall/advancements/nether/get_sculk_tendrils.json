@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:adventure/adventuring_time",
+  "parent": "minecraft:nether/brew_potion",
   "criteria": {
-    "shearify": {
+    "tendrils": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ashfall:reinforced_shears"
+              "ashfall:hardened_sculk_tendrils"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.levelup.get_reinforced_shears.description"
+      "translate": "advancements.levelup.get_sculk_tendrils.description"
     },
-    "frame": "task",
+    "frame": "challenge",
     "hidden": false,
     "icon": {
-      "item": "ashfall:reinforced_shears"
+      "item": "ashfall:hardened_sculk_tendrils"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.levelup.get_reinforced_shears.title"
+      "translate": "advancements.levelup.get_sculk_tendrils.title"
     }
   },
   "requirements": [
     [
-      "shearify"
+      "tendrils"
     ]
   ],
   "sends_telemetry_event": true
