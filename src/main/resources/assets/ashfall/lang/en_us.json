@@ -39,6 +39,11 @@
 	"advancements.levelup.get_reinforced_shears.description": "Craft Reinforced Shears, a humble tool for not so humble tasks...",
 	"advancements.levelup.wardens_first_touch.title":"And Thus It Begins...",
 	"advancements.levelup.wardens_first_touch.description": "Experience the Warden's Touch for the first time, and feel but a taste of what power awaits...",
+	"advancements.levelup.brew_paralysis.title":"Buying Time...",
+	"advancements.levelup.brew_paralysis.description": "Brew a potion that can freeze your enemies in their tracks",
+	"advancements.levelup.brew_decay.title":"Plague Doctor",
+	"advancements.levelup.brew_decay.description": "Brew a potion of decay...",
+
 
 	"effect.ashfall.paralysis": "Paralysis",
 	"effect.ashfall.paralysis.description": "Inhibits movement and access to the inventory.",
@@ -46,10 +51,43 @@
 	"item.minecraft.splash_potion.effect.paralysis": "Paralytic Splash Potion",
 	"item.minecraft.potion.effect.paralysis": "Paralytic Potion",
 	"item.minecraft.lingering_potion.effect.paralysis": "Paralytic Lingering Potion",
+	"item.minecraft.tipped_arrow.effect.long_paralysis": "Arrow of Extended Paralysis",
+	"item.minecraft.splash_potion.effect.long_paralysis": "Extended Paralytic Splash Potion",
+	"item.minecraft.potion.effect.long_paralysis": "Extended Paralytic Potion",
+	"item.minecraft.lingering_potion.effect.long_paralysis": "Extended Paralytic Lingering Potion",
 	"effect.ashfall.warden_touch": "Warden's Touch",
 	"effect.ashfall.warden_touch.description": "Enhances the impacted being, and provides immunity to a Warden's Darkness.",
 	"item.minecraft.tipped_arrow.effect.warden_touch": "Arrow of Warden's Touch",
 	"item.minecraft.splash_potion.effect.warden_touch": "Splash Potion of Warden's Touch",
 	"item.minecraft.potion.effect.warden_touch": "Potion of Warden's Touch",
-	"item.minecraft.lingering_potion.effect.warden_touch": "Lingering Potion of Warden's Touch"
+	"item.minecraft.lingering_potion.effect.warden_touch": "Lingering Potion Of Warden's Touch",
+	"item.minecraft.tipped_arrow.effect.long_warden_touch": "Extended Arrow of Warden's Touch",
+	"item.minecraft.splash_potion.effect.long_warden_touch": "Extended Splash Potion of Warden's Touch",
+	"item.minecraft.potion.effect.long_warden_touch": "Extended Potion of Warden's Touch",
+	"item.minecraft.lingering_potion.effect.long_warden_touch": "Extended Lingering Potion Of Warden's Touch",
+	"item.minecraft.tipped_arrow.effect.strong_warden_touch": "Exhanced Arrow of Warden's Touch",
+	"item.minecraft.splash_potion.effect.strong_warden_touch": "Exhanced Splash Potion of Warden's Touch",
+	"item.minecraft.potion.effect.strong_warden_touch": "Exhanced Potion of Warden's Touch",
+	"item.minecraft.lingering_potion.effect.strong_warden_touch": "Exhanced Lingering Potion Of Warden's Touch",
+
+
+
+	"item.minecraft.tipped_arrow.effect.hero_of_the_village": "Arrow of The Village Hero",
+	"item.minecraft.splash_potion.effect.hero_of_the_village": "Heroic Splash Potion",
+	"item.minecraft.potion.effect.hero_of_the_village": "Heroic Potion",
+	"item.minecraft.lingering_potion.effect.hero_of_the_village": "Lingering Heroic Potion",
+	"item.minecraft.tipped_arrow.effect.long_hero_of_the_village": "Extended Arrow of The Village Hero",
+	"item.minecraft.splash_potion.effect.long_hero_of_the_village": "Extended Heroic Splash Potion",
+	"item.minecraft.potion.effect.long_hero_of_the_village": "Extended Heroic Potion",
+	"item.minecraft.lingering_potion.effect.long_hero_of_the_village": "Lingering Extended Heroic Potion",
+
+	"item.minecraft.tipped_arrow.effect.wither": "Arrow of Decay",
+	"item.minecraft.splash_potion.effect.wither": "Splash Potion of Decay",
+	"item.minecraft.potion.effect.wither": "Potion of Decay",
+	"item.minecraft.lingering_potion.effect.wither": "Lingering Potion of Decay",
+	"item.minecraft.tipped_arrow.effect.long_wither": "Arrow of Extended Decay",
+	"item.minecraft.splash_potion.effect.long_wither": "Splash Potion of Extended Decay",
+	"item.minecraft.potion.effect.long_wither": "Potion of Extended Decay",
+	"item.minecraft.lingering_potion.effect.long_wither": "Lingering Potion of Extended Decay"
+
 }

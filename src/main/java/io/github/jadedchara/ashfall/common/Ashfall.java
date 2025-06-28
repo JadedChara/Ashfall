@@ -4,6 +4,7 @@ import io.github.jadedchara.ashfall.common.block.BlockRegistry;
 import io.github.jadedchara.ashfall.common.effect.ParalysisEffect;
 import io.github.jadedchara.ashfall.common.effect.WardenTouchEffect;
 import io.github.jadedchara.ashfall.common.item.ItemRegistry;
+import io.github.jadedchara.ashfall.common.item.potion.PotionRegistry;
 import io.github.jadedchara.ashfall.common.oversight.handler.MNPScreenHandler;
 import io.github.jadedchara.ashfall.common.recipe.MortarRecipe;
 import io.github.jadedchara.ashfall.common.recipe.serializers.MortarSerializer;
@@ -45,25 +46,6 @@ public class Ashfall implements ModInitializer {
 	public static final StatusEffect WARDEN_TOUCH_EFFECT = new WardenTouchEffect();
 
 	//POTIONS
-	public static final Potion PARALYSIS_POTION =
-			Registry.register(
-					Registries.POTION,
-					new Identifier("ashfall", "paralysis"),
-					new Potion(
-							new StatusEffectInstance(
-									PARALYSIS_EFFECT,
-									3600,
-									0)));
-
-	public static final Potion WARDEN_TOUCH_POTION =
-			Registry.register(
-					Registries.POTION,
-					new Identifier("ashfall", "warden_touch"),
-					new Potion(
-							new StatusEffectInstance(
-									WARDEN_TOUCH_EFFECT,
-									3600,
-									0)));
 
 
 
@@ -101,7 +83,51 @@ public class Ashfall implements ModInitializer {
 				WARDEN_TOUCH_EFFECT
 		);
 		//POTIONS
-		BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.SHROOMLIGHT, PARALYSIS_POTION);
-		BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, ItemRegistry.HARDENED_SCULK_TENDRILS, WARDEN_TOUCH_POTION);
+		PotionRegistry.init();
+		BrewingRecipeRegistry.registerPotionRecipe(
+				Potions.AWKWARD,
+				Items.SHROOMLIGHT,
+				PotionRegistry.PARALYSIS_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				Potions.AWKWARD,
+				ItemRegistry.HARDENED_SCULK_TENDRILS,
+				PotionRegistry.WARDEN_TOUCH_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				PotionRegistry.WARDEN_TOUCH_POTION,
+				Items.GLOWSTONE_DUST,
+				PotionRegistry.STRONGER_WARDEN_TOUCH_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				PotionRegistry.WARDEN_TOUCH_POTION,
+				Items.REDSTONE,
+				PotionRegistry.LONGER_WARDEN_TOUCH_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				Potions.STRONG_HEALING,
+				Items.TOTEM_OF_UNDYING,
+				PotionRegistry.HEROIC_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				PotionRegistry.HEROIC_POTION,
+				Items.REDSTONE_BLOCK,
+				PotionRegistry.LONGER_HEROIC_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				Potions.STRONG_HEALING,
+				Items.FERMENTED_SPIDER_EYE,
+				PotionRegistry.WITHER_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				PotionRegistry.WITHER_POTION,
+				Items.REDSTONE_BLOCK,
+				PotionRegistry.LONGER_WITHER_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				Potions.AWKWARD,
+				Items.EMERALD_BLOCK,
+				Potions.LUCK
+		);
 	}
 }

@@ -1,5 +1,6 @@
 package io.github.jadedchara.ashfall.common.effect;
 
+import io.github.jadedchara.ashfall.common.Ashfall;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -18,5 +19,15 @@ public class WardenTouchEffect extends StatusEffect {
         entity.removeStatusEffect(StatusEffects.DARKNESS);
         entity.removeStatusEffect(StatusEffects.WEAKNESS);
         entity.removeStatusEffect(StatusEffects.MINING_FATIGUE);
+        if(amplifier >= 1){
+            entity.removeStatusEffect(StatusEffects.NAUSEA);
+            entity.removeStatusEffect(StatusEffects.SLOWNESS);
+            entity.removeStatusEffect(StatusEffects.POISON);
+            if(amplifier >=2){
+                entity.removeStatusEffect(Ashfall.PARALYSIS_EFFECT);
+                entity.removeStatusEffect(StatusEffects.WITHER);
+                entity.removeStatusEffect(StatusEffects.BLINDNESS);
+            }
+        }
     }
 }
