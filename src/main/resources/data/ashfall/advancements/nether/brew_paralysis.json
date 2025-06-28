@@ -1,0 +1,32 @@
+{
+  "parent": "ashfall:nether/get_shroomlight",
+  "criteria": {
+    "potion": {
+      "conditions": {
+        "potion": "ashfall:paralysis"
+      },
+      "trigger": "minecraft:brewed_potion"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.levelup.brew_paralysis.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:lingering_potion"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.levelup.brew_paralysis.title"
+    }
+  },
+  "requirements": [
+    [
+      "potion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
