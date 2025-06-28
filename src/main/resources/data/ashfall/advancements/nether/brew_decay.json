@@ -16,7 +16,7 @@
     "frame": "challenge",
     "hidden": false,
     "icon": {
-      "item": "minecraft:lingering_potion"
+      "item": "minecraft:wither_rose"
     },
     "show_toast": true,
     "title": {
