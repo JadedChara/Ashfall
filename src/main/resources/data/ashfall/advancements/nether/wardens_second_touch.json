@@ -1,0 +1,38 @@
+{
+  "parent": "ashfall:nether/wardens_first_touch",
+  "criteria": {
+    "huh": {
+      "conditions": {
+        "effects": {
+
+          "ashfall:warden_touch": {
+            "amplifier": 1
+          }
+
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.levelup.wardens_second_touch.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.levelup.wardens_second_touch.title"
+    }
+  },
+  "requirements": [
+    [
+      "huh"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

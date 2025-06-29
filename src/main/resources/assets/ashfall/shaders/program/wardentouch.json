@@ -35,16 +35,34 @@
       "values": [1.0, 1.0, 1.0, 1.0]
     },
     {
-      "name": "BlurDir",
-      "type": "float",
-      "count": 2,
-      "values": [ 1.0, 1.0 ]
-    },
-    {
       "name": "Multiplier",
       "type": "int",
       "count": 1,
       "values": [ 1 ]
+    },
+    {
+      "name": "RedMatrix",
+      "type": "float",
+      "count": 3,
+      "values": [ 0.1,0.1,0.1 ]
+    },
+    {
+      "name": "GreenMatrix",
+      "type": "float",
+      "count": 3,
+      "values": [ 0.3,0.59,0.11 ]
+    },
+    {
+      "name": "BlueMatrix",
+      "type": "float",
+      "count": 3,
+      "values": [ 0.3,0.59,0.11 ]
+    },
+    {
+      "name": "Saturation",
+      "type": "float",
+      "count": 1,
+      "values": [ 0.25 ]
     }
   ]
 }

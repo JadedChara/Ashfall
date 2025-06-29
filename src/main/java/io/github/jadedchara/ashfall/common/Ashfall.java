@@ -115,8 +115,8 @@ public class Ashfall implements ModInitializer {
 				PotionRegistry.LONGER_HEROIC_POTION
 		);
 		BrewingRecipeRegistry.registerPotionRecipe(
-				Potions.STRONG_HEALING,
-				Items.FERMENTED_SPIDER_EYE,
+				Potions.STRONG_POISON,
+				Items.WITHER_ROSE,
 				PotionRegistry.WITHER_POTION
 		);
 		BrewingRecipeRegistry.registerPotionRecipe(
