@@ -1,6 +1,8 @@
 #version 150
-//Paralysis Fragment
+//Wardentouch Fragment
 
+//Goal:180
+//tolerance:10 - more blue, to beginning teal
 
 uniform sampler2D DiffuseSampler;
 //uniform sampler2D BlurSampler; //--
