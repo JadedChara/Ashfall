@@ -102,6 +102,16 @@ public class PotionRegistry {
                                     4800,
                                     0))
             );
+    public static final Potion UNLUCK_POTION =
+            Registry.register(
+                    Registries.POTION,
+                    new Identifier("ashfall", "unluck"),
+                    new Potion(
+                            new StatusEffectInstance(
+                                    StatusEffects.UNLUCK,
+                                    2400,
+                                    0))
+            );
 
     public static void init(){}
 }

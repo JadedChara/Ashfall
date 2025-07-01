@@ -129,5 +129,10 @@ public class Ashfall implements ModInitializer {
 				Items.EMERALD_BLOCK,
 				Potions.LUCK
 		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				Potions.LUCK,
+				Items.FERMENTED_SPIDER_EYE,
+				PotionRegistry.UNLUCK_POTION
+		);
 	}
 }

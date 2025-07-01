@@ -5,7 +5,9 @@
       "conditions": {
         "effects": {
 
-            "ashfall:warden_touch": {}
+            "ashfall:warden_touch": {
+              "amplifier": 0
+            }
 
         }
       },

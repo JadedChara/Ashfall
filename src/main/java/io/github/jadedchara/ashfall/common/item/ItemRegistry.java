@@ -13,6 +13,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -64,9 +65,8 @@ public class ItemRegistry {
             "blaze_netherite_rod",
             ODDITIES);
 
-
+    //Item Groups
     public static ItemGroup ASHFALL_ODDITIES = FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.ashfall.ashfall_oddities"))
             .icon(()->new ItemStack(HARDENED_SCULK_TENDRILS))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : ODDITIES){
@@ -75,7 +75,6 @@ public class ItemRegistry {
             })
             .build();
     public static ItemGroup ASHFALL_GEAR = FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.ashfall.ashfall_gear"))
             .icon(()->new ItemStack(REINFORCED_SHEARS))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : GEAR){
@@ -85,7 +84,6 @@ public class ItemRegistry {
             .build();
 
     public static ItemGroup ASHFALL_FOOD = FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.ashfall.ashfall_food"))
             .icon(()->new ItemStack(HARDENED_SCULK_TENDRILS))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : FOOD){
@@ -95,7 +93,6 @@ public class ItemRegistry {
             .build();
 
     public static ItemGroup ASHFALL_UTILITIES = FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.ashfall.ashfall_utilities"))
             .icon(()->new ItemStack(BlockRegistry.MORTAR_N_PESTLE))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : UTILITIES){
@@ -104,9 +101,14 @@ public class ItemRegistry {
             })
             .build();
 
+    //-------------------------------------------------------------
     public static void init(){
         FuelRegistry.INSTANCE.add(HARDENED_SCULK_TENDRILS,200);
         CompostingChanceRegistry.INSTANCE.add(HARDENED_SCULK_TENDRILS,0.1F);
+        Registry.register(Registries.ITEM_GROUP,Identifier.of("ashfall","oddities"),ASHFALL_ODDITIES);
+        Registry.register(Registries.ITEM_GROUP,Identifier.of("ashfall","food"),ASHFALL_FOOD);
+        Registry.register(Registries.ITEM_GROUP,Identifier.of("ashfall","gear"),ASHFALL_GEAR);
+        Registry.register(Registries.ITEM_GROUP,Identifier.of("ashfall","utilities"),ASHFALL_UTILITIES);
     }
 
 }

@@ -47,6 +47,8 @@
 	"advancements.levelup.brew_wither.description": "Brew a potion of decay...",
 	"advancements.levelup.brew_luck.title":"Today's Your Lucky Day!",
 	"advancements.levelup.brew_luck.description": "Brew a potion of Luck, and try your chances...",
+	"advancements.levelup.brew_unluck.title":"Rigged Game",
+	"advancements.levelup.brew_unluck.description": "Brew a potion of Unluck to ruin someone's day.",
 	"advancements.levelup.brew_heroic.title":"Synthetic Popularity",
 	"advancements.levelup.brew_heroic.description": "Brew a potion to grant yourself Hero Of The Village because you can't fend off a raid",
 
@@ -94,6 +96,11 @@
 	"item.minecraft.tipped_arrow.effect.long_wither": "Arrow of Extended Decay",
 	"item.minecraft.splash_potion.effect.long_wither": "Splash Potion of Extended Decay",
 	"item.minecraft.potion.effect.long_wither": "Potion of Extended Decay",
-	"item.minecraft.lingering_potion.effect.long_wither": "Lingering Potion of Extended Decay"
+	"item.minecraft.lingering_potion.effect.long_wither": "Lingering Potion of Extended Decay",
+
+	"item.minecraft.tipped_arrow.effect.unluck": "Arrow of Misfortune",
+	"item.minecraft.splash_potion.effect.unluck": "Splash Potion of Misfortune",
+	"item.minecraft.potion.effect.unluck": "Potion of Misfortune",
+	"item.minecraft.lingering_potion.effect.unluck": "Lingering Potion of Misfortune"
 
 }

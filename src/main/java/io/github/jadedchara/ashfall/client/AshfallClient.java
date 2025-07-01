@@ -50,7 +50,7 @@ public class AshfallClient implements ClientModInitializer {
 					paralysisPerspective.render(td);
 				}else if(MinecraftClient.getInstance().player.hasStatusEffect(Ashfall.WARDEN_TOUCH_EFFECT)){
 					wardentouchPerspective.render(td);
-					//MinecraftClient.getInstance().player.removeStatusEffect(StatusEffects.DARKNESS);
+					//MinecraftClient.getInstance().inGameHud.render();
 				}else if (this.activeParalysis == true){
 					testShader.render(td);
 				}
