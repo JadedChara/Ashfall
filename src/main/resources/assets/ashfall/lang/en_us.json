@@ -52,7 +52,12 @@
 	"advancements.levelup.brew_heroic.title":"Synthetic Popularity",
 	"advancements.levelup.brew_heroic.description": "Brew a potion to grant yourself Hero Of The Village because you can't fend off a raid",
 
-
+	"effect.ashfall.combustion": "Combustion",
+	"effect.ashfall.combustion.description": "Ignites the player",
+	"item.minecraft.tipped_arrow.effect.combustion": "Arrow of Ignition",
+	"item.minecraft.splash_potion.effect.combustion": "Combustible Splash Potion",
+	"item.minecraft.potion.effect.combustion": "Potion Of Combustion",
+	"item.minecraft.lingering_potion.effect.combustion": "Lingering Potion Of Flammability",
 	"effect.ashfall.paralysis": "Paralysis",
 	"effect.ashfall.paralysis.description": "Inhibits movement and access to the inventory.",
 	"item.minecraft.tipped_arrow.effect.paralysis": "Arrow of Paralysis",

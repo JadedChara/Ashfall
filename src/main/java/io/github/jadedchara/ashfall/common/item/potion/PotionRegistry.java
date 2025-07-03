@@ -112,6 +112,16 @@ public class PotionRegistry {
                                     2400,
                                     0))
             );
+    public static final Potion COMBUSTION_POTION =
+            Registry.register(
+                    Registries.POTION,
+                    new Identifier("ashfall", "combustion"),
+                    new Potion(
+                            new StatusEffectInstance(
+                                    Ashfall.COMBUSTION_EFFECT,
+                                    2400,
+                                    0))
+            );
 
     public static void init(){}
 }

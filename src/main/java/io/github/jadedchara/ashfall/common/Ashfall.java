@@ -1,8 +1,10 @@
 package io.github.jadedchara.ashfall.common;
 
 import io.github.jadedchara.ashfall.common.block.BlockRegistry;
+import io.github.jadedchara.ashfall.common.effect.CombustionEffect;
 import io.github.jadedchara.ashfall.common.effect.ParalysisEffect;
 import io.github.jadedchara.ashfall.common.effect.WardenTouchEffect;
+import io.github.jadedchara.ashfall.common.enchantment.EnchantmentRegistry;
 import io.github.jadedchara.ashfall.common.item.ItemRegistry;
 import io.github.jadedchara.ashfall.common.item.potion.PotionRegistry;
 import io.github.jadedchara.ashfall.common.oversight.handler.MNPScreenHandler;
@@ -44,6 +46,7 @@ public class Ashfall implements ModInitializer {
 	//Effects
 	public static final StatusEffect PARALYSIS_EFFECT = new ParalysisEffect();
 	public static final StatusEffect WARDEN_TOUCH_EFFECT = new WardenTouchEffect();
+	public static final StatusEffect COMBUSTION_EFFECT = new CombustionEffect();
 
 	//POTIONS
 
@@ -60,6 +63,9 @@ public class Ashfall implements ModInitializer {
 		//REGISTRIES
 		BlockRegistry.init();
 		ItemRegistry.init();
+		EnchantmentRegistry.init();
+
+		//Mortar N' Pestle Instantiation
 		Registry.register(Registries.RECIPE_SERIALIZER, MortarSerializer.ID,
 				MortarSerializer.INSTANCE);
 		Registry.register(
@@ -81,6 +87,13 @@ public class Ashfall implements ModInitializer {
 						"ashfall",
 						"warden_touch"),
 				WARDEN_TOUCH_EFFECT
+		);
+		Registry.register(
+				Registries.STATUS_EFFECT,
+				new Identifier(
+						"ashfall",
+						"combustion"),
+				COMBUSTION_EFFECT
 		);
 		//POTIONS
 		PotionRegistry.init();
@@ -133,6 +146,11 @@ public class Ashfall implements ModInitializer {
 				Potions.LUCK,
 				Items.FERMENTED_SPIDER_EYE,
 				PotionRegistry.UNLUCK_POTION
+		);
+		BrewingRecipeRegistry.registerPotionRecipe(
+				Potions.STRONG_HARMING,
+				Items.MAGMA_BLOCK,
+				PotionRegistry.COMBUSTION_POTION
 		);
 	}
 }

@@ -68,6 +68,7 @@ public class ItemRegistry {
     //Item Groups
     public static ItemGroup ASHFALL_ODDITIES = FabricItemGroup.builder()
             .icon(()->new ItemStack(HARDENED_SCULK_TENDRILS))
+            .displayName(Text.translatable("itemGroup.ashfall.ashfall_oddities"))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : ODDITIES){
                     entries.add(i);
@@ -76,6 +77,7 @@ public class ItemRegistry {
             .build();
     public static ItemGroup ASHFALL_GEAR = FabricItemGroup.builder()
             .icon(()->new ItemStack(REINFORCED_SHEARS))
+            .displayName(Text.translatable("itemGroup.ashfall.ashfall_gear"))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : GEAR){
                     entries.add(i);
@@ -85,6 +87,7 @@ public class ItemRegistry {
 
     public static ItemGroup ASHFALL_FOOD = FabricItemGroup.builder()
             .icon(()->new ItemStack(HARDENED_SCULK_TENDRILS))
+            .displayName(Text.translatable("itemGroup.ashfall.ashfall_food"))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : FOOD){
                     entries.add(i);
@@ -94,6 +97,7 @@ public class ItemRegistry {
 
     public static ItemGroup ASHFALL_UTILITIES = FabricItemGroup.builder()
             .icon(()->new ItemStack(BlockRegistry.MORTAR_N_PESTLE))
+            .displayName(Text.translatable("itemGroup.ashfall.ashfall_utilities"))
             .entries((displayContext, entries) -> {
                 for(ItemStack i : UTILITIES){
                     entries.add(i);
