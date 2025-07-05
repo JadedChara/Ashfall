@@ -3,10 +3,7 @@ package io.github.jadedchara.ashfall.common.block.utility;
 import io.github.jadedchara.ashfall.common.Ashfall;
 import io.github.jadedchara.ashfall.common.block.BlockRegistry;
 import io.github.jadedchara.ashfall.common.block.blockentity.MortarNPestleBlockEntity;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -17,6 +14,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,6 +41,7 @@ public class MortarNPestleBlock extends BlockWithEntity implements BlockEntityPr
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.ENTITYBLOCK_ANIMATED;
+
 
     }
     @Nullable
@@ -72,5 +73,9 @@ public class MortarNPestleBlock extends BlockWithEntity implements BlockEntityPr
             }
             super.onStateReplaced(s, w, p, ns, b);
         }
+    }
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.cuboid(0.1875F, 0.0F, 0.1875F, 0.8125F, 0.375F, 0.8125F);
     }
 }

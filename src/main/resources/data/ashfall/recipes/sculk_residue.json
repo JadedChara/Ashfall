@@ -9,7 +9,7 @@
   "mixComponentB": {
     "item": "minecraft:air"
   },
-  "output": "minecraft:stone",
+  "output": "ashfall:sculk_residue",
   "experience": 10,
   "grindtime": 5
 

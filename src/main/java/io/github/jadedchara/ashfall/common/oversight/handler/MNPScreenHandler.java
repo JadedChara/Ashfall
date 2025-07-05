@@ -10,10 +10,15 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeMatcher;
+import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.*;
+import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -22,6 +27,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInventory> {
+
 
     @Override
     public void populateRecipeFinder(RecipeMatcher finder) {
@@ -64,8 +70,8 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
 
     //Defining
     public class MortarInputInventory extends CraftingInventory implements RecipeInputInventory{
-        public MortarInputInventory(ScreenHandler handler, int width, int height) {
-            super(handler, width, height);
+        public MortarInputInventory(ScreenHandler handler) {
+            super(handler, 3, 1);
         }
 
         @Override
@@ -85,6 +91,7 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
             //super.getStack(slot).decrement(amount);
             return super.removeStack(slot,amount);
         }
+
         @Override
         public ItemStack removeStack(int slot) {
             //super.setStack(slot, super.getStack(slot).copyAndEmpty());
@@ -104,10 +111,10 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
         @Override
         public void clear() {super.clear();}
     }
-    public MortarInputInventory input = new MortarInputInventory(this,3,1);
+    public MortarInputInventory input;
     public CraftingResultInventory output = new CraftingResultInventory();
     public PlayerEntity player;
-
+    public int xp;
     public World world;
     public ScreenHandlerContext context;
 
@@ -115,7 +122,8 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
         super(type,d);
         this.player = p.player;
         this.world = p.player.getWorld();
-        this.input = new MortarInputInventory(this,3,1);
+        this.xp = 0;
+        this.input = new MortarInputInventory(this);
         this.input.setStack(0,n.getStack(0));
         this.input.setStack(1,n.getStack(1));
         this.input.setStack(2,n.getStack(2));
@@ -143,16 +151,52 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
         this.addSlot(new Slot(this.input,1,62,53));
         this.addSlot(new Slot(this.input,0,80,53));
         this.addSlot(new Slot(this.input,2,98,53));
-        this.addSlot(new Slot(this.output, 3,80,17){
-            @Override
-            public boolean canInsert(ItemStack it){return false;}
-            @Override
-            public void onTakeItem(PlayerEntity player, ItemStack stack) {
-                super.onTakeItem(player, stack);
-                MNPScreenHandler.this.onTakeOutput(player,stack);
-            }
-            @Override
-            public boolean canTakeItems(PlayerEntity playerEntity) {return true;}
+        this.addSlot(new CraftingResultSlot(this.player,this.input,this.output, 3,80,17){
+          @Override
+          public void onTakeItem(PlayerEntity player, ItemStack stack) {
+              this.onCrafted(stack);
+
+              DefaultedList<ItemStack> defaultedList =
+                      player.getWorld().getRecipeManager().getRemainingStacks(
+                              MortarRecipe.Type.INSTANCE,
+                              MNPScreenHandler.this.input,
+                              player.getWorld()
+                      );
+
+              for(int i = 0; i < defaultedList.size(); ++i) {
+                  ItemStack itemStack = MNPScreenHandler.this.input.getStack(i);
+                  ItemStack itemStack2 = defaultedList.get(i);
+                  if (!itemStack.isEmpty()) {
+                      MNPScreenHandler.this.input.removeStack(i, 1);
+                      itemStack = MNPScreenHandler.this.input.getStack(i);
+
+                  }
+
+                  if (!itemStack2.isEmpty()) {
+                      if (itemStack.isEmpty()) {
+                          MNPScreenHandler.this.input.setStack(i, itemStack2);
+                      } else if (ItemStack.canCombine(itemStack, itemStack2)) {
+                          itemStack2.increment(itemStack.getCount());
+                          MNPScreenHandler.this.input.setStack(i, itemStack2);
+                      } else if (!MNPScreenHandler.this.player.getInventory().insertStack(itemStack2)) {
+                          MNPScreenHandler.this.player.dropItem(itemStack2, false);
+                      }
+                  }
+              }
+              player.getWorld().playSound(
+                      bp.getX(),
+                      bp.getY(),
+                      bp.getZ(),
+                      SoundEvents.BLOCK_GRINDSTONE_USE,
+                      SoundCategory.NEUTRAL,
+                      0.5F,
+                      0.5F,
+                      false
+              );
+              player.addExperience(MNPScreenHandler.this.xp);
+              MNPScreenHandler.this.xp = 0;
+
+          }
         });
         //System.out.println(this.slots.size());
         this.setPreviousTrackedSlotMutable(3,ItemStack.EMPTY);
@@ -168,28 +212,49 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
 
-        ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(invSlot);
-        if (slot != null && slot.hasStack()) {
-            ItemStack originalStack = slot.getStack();
-            newStack = originalStack.copy();
-            if (invSlot < this.input.size()) {
-                if (!this.insertItem(originalStack, this.input.size(), this.slots.size(), true)) {
+        ItemStack itemStack = ItemStack.EMPTY;
+        Slot storedslot = this.slots.get(invSlot);
+        if (storedslot.hasStack()) {
+            ItemStack itemStack2 = storedslot.getStack();
+            itemStack = itemStack2.copy();
+            if (invSlot == 0) {
+                this.context.run((world, pos) -> itemStack2.getItem().onCraft(itemStack2, world, player));
+                if (!this.insertItem(itemStack2, 3, 39, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, this.input.size(), false)) {
+
+                storedslot.onQuickTransfer(itemStack2, itemStack);
+            } else if (invSlot >= 3 && invSlot < 39) {
+                if (!this.insertItem(itemStack2, 1, 3, false)) {
+                    if (invSlot < 30) {
+                        if (!this.insertItem(itemStack2, 30, 39, false)) {
+                            return ItemStack.EMPTY;
+                        }
+                    } else if (!this.insertItem(itemStack2, 3, 30, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                }
+            } else if (!this.insertItem(itemStack2, 10, 39, false)) {
                 return ItemStack.EMPTY;
             }
 
-            if (originalStack.isEmpty()) {
-                slot.setStack(ItemStack.EMPTY);
+            if (itemStack2.isEmpty()) {
+                storedslot.setStack(ItemStack.EMPTY);
             } else {
-                slot.markDirty();
+                storedslot.markDirty();
+            }
+
+            if (itemStack2.getCount() == itemStack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            storedslot.onTakeItem(player, itemStack2);
+            if (invSlot == 0) {
+                player.dropItem(itemStack2, false);
             }
         }
-        this.updateResult(this.player,this.world,this.input,this.output);
-        return newStack;
-        
+
+        return itemStack;
     }
 
     @Override
@@ -202,13 +267,13 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
             Optional<MortarRecipe> optional =
                     w.getServer().getRecipeManager().getFirstMatch(MortarRecipe.Type.INSTANCE, i, w);
             if (optional.isPresent()) {
-                MortarRecipe craftingRecipe = (MortarRecipe) optional.get();
-                System.out.println(craftingRecipe.output);
+                MortarRecipe craftingRecipe = optional.get();
+                //System.out.println(craftingRecipe.output);
                 if (r.shouldCraftRecipe(w, serverPlayerEntity, craftingRecipe)) {
                     ItemStack itemStack2 = craftingRecipe.craft(i, w.getRegistryManager());
                     if (itemStack2.isItemEnabled(w.getEnabledFeatures())) {
                         itemStack = itemStack2;
-                        System.out.println(itemStack2);
+                        this.xp = craftingRecipe.experience;
                     }
                 }
             }
@@ -234,18 +299,7 @@ public class MNPScreenHandler extends AbstractRecipeScreenHandler<RecipeInputInv
         }
     }
 
-    protected void onTakeOutput(PlayerEntity p, ItemStack stack) {
-        stack.onCraft(player.getWorld(), player, stack.getCount());
-        this.updateResult(p,this.world,this.input, this.output);
-        //this.output.unlockLastRecipe(player);
-        this.input.getStack(0).decrement(stack.getCount());
-        this.input.getStack(1).decrement(stack.getCount());
-        this.input.getStack(2).decrement(stack.getCount());
 
-        //this.input.removeStack(0,stack.getCount());
-        //this.input.removeStack(1,stack.getCount());
-        //this.input.removeStack(2,stack.getCount());
-    }
     @Override
     public void onClosed(PlayerEntity player) {
         super.onClosed(player);

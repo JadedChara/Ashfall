@@ -52,6 +52,20 @@ public class ItemRegistry {
             "hardened_sculk_tendrils",
             ODDITIES
     );
+    public static Item SCULK_RESIDUE = register(
+            new Item(
+                    new FabricItemSettings()
+                            .food(new FoodComponent.Builder()
+                                    .hunger(5)
+                                    .saturationModifier(0.1F)
+                                    .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 400, 1), 1.0F)
+                                    .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 400, 1), 1.0F)
+                                    .build()
+                            )
+            ),
+            "sculk_residue",
+            ODDITIES
+    );
     public static Item NETHERITE_ROD = register(
             new Item(new FabricItemSettings().fireproof()),
             "netherite_rod",
