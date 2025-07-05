@@ -5,10 +5,11 @@
   "mixins": [
     "DeOpMixin",
     "ExampleMixin",
+    "LivingEntityMixin",
+    "MobLockMixin",
     "NeckLockMixin",
     "SculkCatalystMixin",
-    "ViewLockMixin",
-    "MobLockMixin"
+    "ViewLockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

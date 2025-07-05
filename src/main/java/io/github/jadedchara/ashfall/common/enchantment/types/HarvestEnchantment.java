@@ -1,5 +1,7 @@
 package io.github.jadedchara.ashfall.common.enchantment.types;
 
+import io.github.jadedchara.ashfall.common.oversight.accessor.LivingEntityAccessor;
+import io.github.jadedchara.ashfall.mixin.LivingEntityMixin;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -26,10 +28,8 @@ public class HarvestEnchantment extends Enchantment {
         if(target instanceof LivingEntity) {
             user.setHealth(
                     user.getHealth() + (
-                            this.getAttackDamage(
-                                    level,
-                                    ((LivingEntity) target).getGroup()
-                            ) * 0.1F * level
+
+                            ((LivingEntityAccessor)target).getFilteredDamage() * 0.1F * level
                     )
             );
         }
