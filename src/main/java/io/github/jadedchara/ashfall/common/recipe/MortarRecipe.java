@@ -25,18 +25,20 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
     public ItemStack output;
     public int experience;
     public int grindtime;
+    public int amount;
     public List<Ingredient> recipeItems;
 
 
 
-    public MortarRecipe(Identifier i, List<Ingredient> ingredients, ItemStack out,
+    public MortarRecipe(Identifier i, List<Ingredient> ingredients, ItemStack out,int am,
                         int e, int gt){
         super();
         this.id = i;
 
         this.recipeItems = ingredients;
         this.input = ingredients.get(0);
-        this.output = out;
+        this.output = new ItemStack(out.getItem(),am);
+        this.amount = am;
         this.mixComponentA = ingredients.get(1);
         this.mixComponentB = ingredients.get(2);
 
@@ -60,7 +62,7 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
     }
 
     public ItemStack getResult() {
-        return this.output;
+        return new ItemStack(this.output.getItem(),this.amount);
     }
     public Ingredient getMixComponentA() {
         return this.mixComponentA;
@@ -140,6 +142,7 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
         public JsonObject mixComponentA;
         public JsonObject mixComponentB;
         public String output;
+        public int amount;
         public int experience;
         public int grindtime;
     }

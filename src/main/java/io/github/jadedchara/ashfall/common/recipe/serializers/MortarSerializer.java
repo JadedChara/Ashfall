@@ -46,9 +46,10 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
         ItemStack output = new ItemStack(outputItem);
         int experience = recipeJson.experience;
         int grindtime = recipeJson.grindtime;
+        int amount = recipeJson.amount;
         List<Ingredient> items = List.of(input,mixComponentA,mixComponentB);
 
-        return new MortarRecipe(id,items,output,experience,grindtime);
+        return new MortarRecipe(id,items,output,amount,experience,grindtime);
     }
     @Override
     public void write(PacketByteBuf packetData, MortarRecipe recipe) {
@@ -56,6 +57,7 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
         recipe.getMixComponentA().write(packetData);
         recipe.getMixComponentB().write(packetData);
         packetData.writeItemStack(recipe.getResult());
+        packetData.writeInt(recipe.getResult().getCount());
         packetData.writeInt(recipe.getExperience());
         packetData.writeInt(recipe.getGrindtime());
 
@@ -67,11 +69,12 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
         Ingredient mixComponentA = Ingredient.fromPacket(packetData);
         Ingredient mixComponentB = Ingredient.fromPacket(packetData);
         ItemStack output = packetData.readItemStack();
+        int amount = packetData.readInt();
         int experience = packetData.readInt();
         int grindtime = packetData.readInt();
 
         List<Ingredient> items = List.of(input,mixComponentA,mixComponentB);
-        return new MortarRecipe(id,items, output,experience,grindtime);
+        return new MortarRecipe(id,items,output,amount,experience,grindtime);
     }
 
     private MortarSerializer() {

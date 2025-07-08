@@ -1,7 +1,7 @@
 {
   "type": "ashfall:mortar_n_pestle",
   "input" : {
-    "item": "ashfall:hardened_sculk_tendrils"
+    "item": "minecraft:cactus"
   },
   "mixComponentA": {
     "item": "minecraft:air"
@@ -9,8 +9,9 @@
   "mixComponentB": {
     "item": "minecraft:air"
   },
-  "output": "ashfall:sculk_residue",
-  "experience": 10,
+  "output": "minecraft:green_dye",
+  "amount": 4,
+  "experience": 0,
   "grindtime": 5
 
 }

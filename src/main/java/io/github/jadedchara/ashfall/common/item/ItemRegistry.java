@@ -66,6 +66,10 @@ public class ItemRegistry {
             "sculk_residue",
             ODDITIES
     );
+    public static Item BLAZE_DUST = register(
+            new Item(new FabricItemSettings().fireproof()),
+            "blaze_dust",
+            ODDITIES);
     public static Item NETHERITE_ROD = register(
             new Item(new FabricItemSettings().fireproof()),
             "netherite_rod",

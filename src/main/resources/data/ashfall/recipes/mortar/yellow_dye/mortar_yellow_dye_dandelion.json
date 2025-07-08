@@ -1,0 +1,17 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : {
+    "item": "minecraft:dandelion"
+  },
+  "mixComponentA": {
+    "item": "minecraft:air"
+  },
+  "mixComponentB": {
+    "item": "minecraft:air"
+  },
+  "output": "minecraft:yellow_dye",
+  "amount": 2,
+  "experience": 0,
+  "grindtime": 5
+
+}
