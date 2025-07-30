@@ -1,0 +1,14 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:gray_dye"},
+    {"item":"minecraft:gray_dye"},
+    {"item": "minecraft:bonemeal"}
+  ],
+
+  "output": "minecraft:light_gray_dye",
+  "amount": 4,
+  "experience": 0,
+  "grindtime": 5
+
+}

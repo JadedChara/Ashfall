@@ -1,0 +1,11 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:sunflower"}
+  ],
+  "output": "minecraft:yellow_dye",
+  "amount": 4,
+  "experience": 0,
+  "grindtime": 5
+
+}

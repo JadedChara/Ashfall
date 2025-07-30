@@ -24,19 +24,20 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
         if (recipeJson.input == null || recipeJson.output == null) {
             throw new JsonSyntaxException("A required attribute is missing!");
         }
-        Ingredient input = Ingredient.fromJson(recipeJson.input);
+        Ingredient input = Ingredient.fromJson(recipeJson.input.get(0));
+
         Ingredient mixComponentA; //= Ingredient.fromJson(recipeJson.mixComponentA,true);
         Ingredient mixComponentB; //= Ingredient.fromJson(recipeJson.mixComponentB,true);
         try{
-            mixComponentA = Ingredient.fromJson(recipeJson.mixComponentA,true);
+            mixComponentA = Ingredient.fromJson(recipeJson.input.get(1),true);
         }catch(Exception e){
-            System.out.println(e);
+            //System.out.println(e);
             mixComponentA = Ingredient.ofItems(Items.AIR);
         }
         try{
-            mixComponentB = Ingredient.fromJson(recipeJson.mixComponentB,true);
+            mixComponentB = Ingredient.fromJson(recipeJson.input.get(2),true);
         }catch(Exception e){
-            System.out.println(e);
+            //System.out.println(e);
             mixComponentB = Ingredient.ofItems(Items.AIR);
         }
 
@@ -53,9 +54,11 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
     }
     @Override
     public void write(PacketByteBuf packetData, MortarRecipe recipe) {
-        recipe.getInput().write(packetData);
-        recipe.getMixComponentA().write(packetData);
-        recipe.getMixComponentB().write(packetData);
+        recipe.getInput().get(0).write(packetData);
+        recipe.getInput().get(1).write(packetData);
+        recipe.getInput().get(2).write(packetData);
+        //recipe.getMixComponentA().write(packetData);
+        //recipe.getMixComponentB().write(packetData);
         packetData.writeItemStack(recipe.getResult());
         packetData.writeInt(recipe.getResult().getCount());
         packetData.writeInt(recipe.getExperience());
@@ -65,7 +68,7 @@ public class MortarSerializer implements RecipeSerializer<MortarRecipe> {
 
     @Override
     public MortarRecipe read(Identifier id, PacketByteBuf packetData) {
-        Ingredient input = Ingredient.fromPacket(packetData);
+        Ingredient input =  Ingredient.fromPacket(packetData);
         Ingredient mixComponentA = Ingredient.fromPacket(packetData);
         Ingredient mixComponentB = Ingredient.fromPacket(packetData);
         ItemStack output = packetData.readItemStack();

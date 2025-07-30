@@ -1,0 +1,13 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:red_dye"},
+    {"item": "minecraft:lapis_lazuli"}
+  ],
+
+  "output": "minecraft:purple_dye",
+  "amount": 3,
+  "experience": 0,
+  "grindtime": 5
+
+}

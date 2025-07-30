@@ -1,0 +1,12 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:blue_orchid"}
+  ],
+
+  "output": "minecraft:light_blue_dye",
+  "amount": 2,
+  "experience": 0,
+  "grindtime": 5
+
+}

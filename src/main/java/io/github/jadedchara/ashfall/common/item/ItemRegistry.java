@@ -47,7 +47,7 @@ public class ItemRegistry {
                                     .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 400, 1), 1.0F)
                                     .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 400, 1), 1.0F)
                                     .build()
-                            )
+                            )//Add recipes for additional uses//
             ),
             "hardened_sculk_tendrils",
             ODDITIES

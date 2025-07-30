@@ -1,0 +1,12 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:ink_sac"}
+  ],
+
+  "output": "minecraft:black_dye",
+  "amount": 2,
+  "experience": 0,
+  "grindtime": 5
+
+}

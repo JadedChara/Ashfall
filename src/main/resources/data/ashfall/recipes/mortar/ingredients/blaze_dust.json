@@ -1,0 +1,13 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:blaze_powder"},
+    {"item": "minecraft:glowstone_dust"},
+    {"item": "minecraft:sugar"}
+  ],
+  "output": "ashfall:blaze_dust",
+  "amount": 2,
+  "experience": 10,
+  "grindtime": 5
+
+}

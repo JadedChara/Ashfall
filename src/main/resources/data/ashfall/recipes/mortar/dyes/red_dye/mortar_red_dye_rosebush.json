@@ -1,0 +1,11 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:rose_bush"}
+  ],
+  "output": "minecraft:red_dye",
+  "amount": 4,
+  "experience": 0,
+  "grindtime": 5
+
+}

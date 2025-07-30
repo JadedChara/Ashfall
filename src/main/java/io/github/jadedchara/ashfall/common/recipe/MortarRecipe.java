@@ -8,6 +8,7 @@ import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
@@ -57,25 +58,15 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
         );
     }
 
-    public Ingredient getInput() {
-        return this.input;
+    public List<Ingredient> getInput() {
+        return this.recipeItems;
     }
 
-    public ItemStack getResult() {
-        return new ItemStack(this.output.getItem(),this.amount);
-    }
-    public Ingredient getMixComponentA() {
-        return this.mixComponentA;
-    }
-    public Ingredient getMixComponentB() {
-        return this.mixComponentB;
-    }
-    public int getExperience(){
-        return this.experience;
-    }
-    public int getGrindtime(){
-        return this.grindtime;
-    }
+    public ItemStack getResult() {return new ItemStack(this.output.getItem(),this.amount);}
+    public Ingredient getMixComponentA() {return this.mixComponentA;}
+    public Ingredient getMixComponentB() {return this.mixComponentB;}
+    public int getExperience(){return this.experience;}
+    public int getGrindtime(){return this.grindtime;}
 
     @Override
     public Identifier getId() {
@@ -83,15 +74,53 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
     }
     @Override
     public boolean matches(CraftingInventory inv, World world) {
-        if(!world.isClient()/* || inv.size() < 3*/) {
-            //return false;
-        //}
+        if(!world.isClient()) {
+            if(
+                    recipeItems.get(0) == Ingredient.ofItems(Items.AIR) &&
+                    recipeItems.get(1) == Ingredient.ofItems(Items.AIR) &&
+                    recipeItems.get(2) == Ingredient.ofItems(Items.AIR)
+            ){
+                return false;
+            }else{
+                for(int i = 0; i<2; i++){
+                    if(
+                            (
+                                    recipeItems.get(0).test(inv.getStack(0))&&
+                                            recipeItems.get(1).test(inv.getStack(1))&&
+                                            recipeItems.get(2).test(inv.getStack(2))
+                            ) ||
+                            (
+                                    recipeItems.get(1).test(inv.getStack(0))&&
+                                            recipeItems.get(0).test(inv.getStack(1))&&
+                                            recipeItems.get(2).test(inv.getStack(2))
+                            ) ||
+                            (
+                                    recipeItems.get(0).test(inv.getStack(0))&&
+                                            recipeItems.get(2).test(inv.getStack(1))&&
+                                            recipeItems.get(1).test(inv.getStack(2))
+                            ) ||
+                            (
+                                    recipeItems.get(2).test(inv.getStack(0))&&
+                                            recipeItems.get(0).test(inv.getStack(1))&&
+                                            recipeItems.get(1).test(inv.getStack(2))
+                            ) ||
+                            (
+                                    recipeItems.get(2).test(inv.getStack(0))&&
+                                            recipeItems.get(1).test(inv.getStack(1))&&
+                                            recipeItems.get(0).test(inv.getStack(2))
+                            ) ||
+                            (
+                                    recipeItems.get(1).test(inv.getStack(0))&&
+                                            recipeItems.get(2).test(inv.getStack(1))&&
+                                            recipeItems.get(0).test(inv.getStack(2))
+                            )
 
-        return (recipeItems.get(0).test(inv.getStack(0))&&
-                recipeItems.get(1).test(inv.getStack(1))&&
-                recipeItems.get(2).test(inv.getStack(2))
+                    ){
+                        return true;
+                    }
+                }
+            }
 
-        );
         }
         return false;
     }
@@ -138,7 +167,7 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
     }
 
     public static class MortarRecipeFormat{
-        public JsonObject input;
+        public List<JsonObject> input;
         public JsonObject mixComponentA;
         public JsonObject mixComponentB;
         public String output;

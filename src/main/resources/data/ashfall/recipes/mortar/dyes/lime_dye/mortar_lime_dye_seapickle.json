@@ -1,0 +1,12 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:sea_pickle"}
+  ],
+
+  "output": "minecraft:lime_dye",
+  "amount": 1,
+  "experience": 2,
+  "grindtime": 5
+
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:pitcher_plant"}
+  ],
+
+  "output": "minecraft:cyan_dye",
+  "amount": 4,
+  "experience": 2,
+  "grindtime": 5
+
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:oxeye_daisy"}
+  ],
+
+  "output": "minecraft:light_gray_dye",
+  "amount": 2,
+  "experience": 0,
+  "grindtime": 5
+
+}

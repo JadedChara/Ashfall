@@ -1,0 +1,13 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:pink_dye"},
+    {"item": "minecraft:purple_dye"}
+  ],
+
+  "output": "minecraft:magenta_dye",
+  "amount": 2,
+  "experience": 0,
+  "grindtime": 5
+
+}

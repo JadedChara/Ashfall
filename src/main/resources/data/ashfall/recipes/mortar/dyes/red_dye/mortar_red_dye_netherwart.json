@@ -1,0 +1,11 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:nether_wart"}
+  ],
+  "output": "minecraft:red_dye",
+  "amount": 1,
+  "experience": 1,
+  "grindtime": 5
+
+}

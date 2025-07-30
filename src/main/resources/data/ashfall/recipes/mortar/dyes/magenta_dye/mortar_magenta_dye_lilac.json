@@ -1,0 +1,12 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:lilac"}
+  ],
+
+  "output": "minecraft:magenta_dye",
+  "amount": 4,
+  "experience": 0,
+  "grindtime": 5
+
+}

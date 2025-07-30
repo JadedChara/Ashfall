@@ -1,0 +1,12 @@
+{
+  "type": "ashfall:mortar_n_pestle",
+  "input" : [
+    {"item": "minecraft:lily_of_the_valley"}
+  ],
+
+  "output": "minecraft:white_dye",
+  "amount": 2,
+  "experience": 0,
+  "grindtime": 5
+
+}
