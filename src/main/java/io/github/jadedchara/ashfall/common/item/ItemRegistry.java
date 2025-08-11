@@ -4,6 +4,7 @@ package io.github.jadedchara.ashfall.common.item;
 import io.github.jadedchara.ashfall.common.Ashfall;
 import io.github.jadedchara.ashfall.common.block.BlockRegistry;
 import io.github.jadedchara.ashfall.common.item.tool.ReinforcedShearsItem;
+import io.github.jadedchara.ashfall.common.item.weapon.LesserReaperScythe;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
@@ -16,6 +17,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,13 @@ public class ItemRegistry {
                     new FabricItemSettings().maxDamage(4)
             ),
             "reinforced_shears",
+            GEAR
+    );
+    public static Item LESSER_REAPER_SCYTHE = register(
+            new LesserReaperScythe(
+                    new FabricItemSettings().fireproof().maxCount(1).rarity(Rarity.EPIC)
+            ),
+            "lesser_reaper_scythe",
             GEAR
     );
     public static Item HARDENED_SCULK_TENDRILS = register(

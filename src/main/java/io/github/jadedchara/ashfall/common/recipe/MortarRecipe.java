@@ -21,8 +21,8 @@ import java.util.List;
 public class MortarRecipe implements Recipe<CraftingInventory> {
     public Identifier id;
     public Ingredient input;
-    public Ingredient mixComponentA;
-    public Ingredient mixComponentB;
+    //public Ingredient mixComponentA;
+    //public Ingredient mixComponentB;
     public ItemStack output;
     public int experience;
     public int grindtime;
@@ -37,25 +37,12 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
         this.id = i;
 
         this.recipeItems = ingredients;
-        this.input = ingredients.get(0);
+        //this.input = ingredients.get(0);
         this.output = new ItemStack(out.getItem(),am);
         this.amount = am;
-        this.mixComponentA = ingredients.get(1);
-        this.mixComponentB = ingredients.get(2);
 
         this.experience = e;
         this.grindtime = gt;
-        System.out.println(
-                "Mortar N' Pestle recipe registered:\n--Primary Ingredient: "
-                        + this.input
-                        +"\n--Mix Part A:"
-                        +this.mixComponentA
-                        +"\n--Mix Part B:"
-                        +this.mixComponentB
-                        +"\n--Output:"
-                        +this.output
-                        +"\n-----------"
-        );
     }
 
     public List<Ingredient> getInput() {
@@ -63,8 +50,6 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
     }
 
     public ItemStack getResult() {return new ItemStack(this.output.getItem(),this.amount);}
-    public Ingredient getMixComponentA() {return this.mixComponentA;}
-    public Ingredient getMixComponentB() {return this.mixComponentB;}
     public int getExperience(){return this.experience;}
     public int getGrindtime(){return this.grindtime;}
 
@@ -82,47 +67,50 @@ public class MortarRecipe implements Recipe<CraftingInventory> {
             ){
                 return false;
             }else{
-                for(int i = 0; i<2; i++){
+                //for(int i = 0; i<2; i++){
                     if(
                             (
-                                    recipeItems.get(0).test(inv.getStack(0))&&
+                                            recipeItems.get(0).test(inv.getStack(0))&&
                                             recipeItems.get(1).test(inv.getStack(1))&&
                                             recipeItems.get(2).test(inv.getStack(2))
                             ) ||
                             (
-                                    recipeItems.get(1).test(inv.getStack(0))&&
+                                            recipeItems.get(1).test(inv.getStack(0))&&
                                             recipeItems.get(0).test(inv.getStack(1))&&
                                             recipeItems.get(2).test(inv.getStack(2))
                             ) ||
                             (
-                                    recipeItems.get(0).test(inv.getStack(0))&&
+                                            recipeItems.get(0).test(inv.getStack(0))&&
                                             recipeItems.get(2).test(inv.getStack(1))&&
                                             recipeItems.get(1).test(inv.getStack(2))
                             ) ||
                             (
-                                    recipeItems.get(2).test(inv.getStack(0))&&
+                                            recipeItems.get(2).test(inv.getStack(0))&&
                                             recipeItems.get(0).test(inv.getStack(1))&&
                                             recipeItems.get(1).test(inv.getStack(2))
                             ) ||
                             (
-                                    recipeItems.get(2).test(inv.getStack(0))&&
+                                            recipeItems.get(2).test(inv.getStack(0))&&
                                             recipeItems.get(1).test(inv.getStack(1))&&
                                             recipeItems.get(0).test(inv.getStack(2))
                             ) ||
                             (
-                                    recipeItems.get(1).test(inv.getStack(0))&&
+                                            recipeItems.get(1).test(inv.getStack(0))&&
                                             recipeItems.get(2).test(inv.getStack(1))&&
                                             recipeItems.get(0).test(inv.getStack(2))
                             )
 
                     ){
                         return true;
+                    }else{
+                        return false;
                     }
-                }
+                //}
             }
 
+        }else {
+            return false;
         }
-        return false;
     }
     @Override
     public ItemStack craft(CraftingInventory inventory, DynamicRegistryManager rm) {

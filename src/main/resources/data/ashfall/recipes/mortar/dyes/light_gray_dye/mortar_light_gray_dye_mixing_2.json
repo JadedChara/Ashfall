@@ -3,7 +3,7 @@
   "input" : [
     {"item": "minecraft:gray_dye"},
     {"item":"minecraft:gray_dye"},
-    {"item": "minecraft:bonemeal"}
+    {"item": "minecraft:bone_meal"}
   ],
 
   "output": "minecraft:light_gray_dye",

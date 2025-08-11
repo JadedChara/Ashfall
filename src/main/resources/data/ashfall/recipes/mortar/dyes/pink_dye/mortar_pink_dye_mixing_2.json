@@ -2,7 +2,7 @@
   "type": "ashfall:mortar_n_pestle",
   "input" : [
     {"item": "minecraft:red_dye"},
-    {"item": "minecraft:bonemeal"}
+    {"item": "minecraft:bone_meal"}
   ],
 
   "output": "minecraft:pink_dye",
