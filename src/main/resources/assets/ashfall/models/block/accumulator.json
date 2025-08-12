@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "down": "minecraft:block/accumulator_bottom",
-    "east": "minecraft:block/accumulator_side",
-    "north": "minecraft:block/accumulator_side",
+    "down": "ashfall:block/accumulator_bottom",
+    "east": "ashfall:block/accumulator_side",
+    "north": "ashfall:block/accumulator_side",
     "particle": "minecraft:block/netherite_block",
-    "south": "minecraft:block/accumulator_side",
-    "up": "minecraft:block/accumulator_top",
-    "west": "minecraft:block/accumulator_side"
+    "south": "ashfall:block/accumulator_side",
+    "up": "ashfall:block/accumulator_top",
+    "west": "ashfall:block/accumulator_side"
   }
 }
