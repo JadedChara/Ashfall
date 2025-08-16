@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "ashfall:block/focusing_stone_bottom",
+    "east": "ashfall:block/focusing_stone_side",
+    "north": "ashfall:block/focusing_stone_side",
+    "particle": "minecraft:block/netherite_block",
+    "south": "ashfall:block/focusing_stone_side",
+    "up": "ashfall:block/focusing_stone_top",
+    "west": "ashfall:block/focusing_stone_side"
+  }
+}

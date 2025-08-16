@@ -2,8 +2,10 @@ package io.github.jadedchara.ashfall.common.block;
 
 import io.github.jadedchara.ashfall.common.Ashfall;
 import io.github.jadedchara.ashfall.common.block.blockentity.AccumulatorBlockEntity;
+import io.github.jadedchara.ashfall.common.block.blockentity.FocusingStoneBlockEntity;
 import io.github.jadedchara.ashfall.common.block.blockentity.MortarNPestleBlockEntity;
 import io.github.jadedchara.ashfall.common.block.utility.AccumulatorBlock;
+import io.github.jadedchara.ashfall.common.block.utility.FocusingStoneBlock;
 import io.github.jadedchara.ashfall.common.block.utility.MortarNPestleBlock;
 import io.github.jadedchara.ashfall.common.item.ItemRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -31,7 +33,21 @@ public class BlockRegistry {
 
     }
     //Blocks
-
+    public static final Block RESILIRITE_BLOCK =
+            bRegister(new Block(
+                            AbstractBlock.Settings.copy(
+                                    Blocks.REINFORCED_DEEPSLATE
+                            ).dynamicBounds().nonOpaque().requiresTool().mapColor(
+                                    MapColor.PALE_PURPLE
+                            ).instrument(
+                                    Instrument.BASEDRUM
+                            ).strength(
+                                    Blocks.OBSIDIAN.getHardness(),
+                                    Blocks.OBSIDIAN.getBlastResistance()
+                            )
+                    ),"resilirite_block",
+                    ItemRegistry.UTILITIES
+            );
     public static final MortarNPestleBlock MORTAR_N_PESTLE =
             (MortarNPestleBlock) bRegister(new MortarNPestleBlock(
                     AbstractBlock.Settings.copy(
@@ -59,6 +75,21 @@ public class BlockRegistry {
                     ),"accumulator"
                     ,ItemRegistry.ODDITIES
             );
+    public static final FocusingStoneBlock FOCUSING_STONE_BLOCK =
+            (FocusingStoneBlock) bRegister(new FocusingStoneBlock(
+                            AbstractBlock.Settings.copy(
+                                    Blocks.OBSIDIAN
+                            ).requiresTool().mapColor(
+                                    MapColor.DEEPSLATE_GRAY
+                            ).instrument(
+                                    Instrument.IRON_XYLOPHONE
+                            ).strength(
+                                    Blocks.NETHERITE_BLOCK.getHardness(),
+                                    Blocks.NETHERITE_BLOCK.getBlastResistance()
+                            )
+                    ),"focusing_stone"
+                    ,ItemRegistry.ODDITIES
+            );
 
 
     //BlockEntities
@@ -77,6 +108,14 @@ public class BlockRegistry {
                             Ashfall.MOD_ID,
                             "accumulator_blockentity"),
                     FabricBlockEntityTypeBuilder.create(AccumulatorBlockEntity::new,ACCUMULATOR).build()
+            );
+    public static final BlockEntityType FOCUSING_STONE_BLOCK_ENTITY =
+            Registry.register(
+                    Registries.BLOCK_ENTITY_TYPE,
+                    Identifier.of(
+                            Ashfall.MOD_ID,
+                            "focusing_stone_blockentity"),
+                    FabricBlockEntityTypeBuilder.create(FocusingStoneBlockEntity::new,FOCUSING_STONE_BLOCK).build()
             );
 
     public static void init(){}

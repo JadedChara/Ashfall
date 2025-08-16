@@ -10,25 +10,35 @@
 
 
 	"item.ashfall.reinforced_shears": "Reinforced Shears",
+
 	"item.ashfall.hardened_sculk_tendrils": "Hardened Sculk Tendrils",
 	"item.ashfall.sculk_residue": "Sculk Residue",
 	"item.ashfall.sculk_spores": "Sculk Spores",
 	"item.ashfall.blaze_dust": "Blaze Dust",
 	"item.ashfall.netherite_rod": "Netherite Rod",
+	"item.ashfall.sculk_netherite_rod": "Sculk-Infused Netherite Rod",
+	"item.ashfall.blaze_netherite_rod": "Blaze-Infused Netherite Rod",
+	"item.ashfall.resilirite_ingot": "Resilirite Ingot",
+
+
 	"item.ashfall.proxy_of_judgement": "Proxy Of Judgement",
 	"item.ashfall.grid_tethers": "Tethers Of The Grid",
 	"item.ashfall.spatial_anchor": "Spatial Anchor",
-	"item.ashfall.sculk_netherite_rod": "Sculk-Infused Netherite Rod",
-	"item.ashfall.blaze_netherite_rod": "Blaze-Infused Netherite Rod",
-	"item.ashfall.reaper_talisman": "The Reaper's Talisman",
 
+	"item.ashfall.reaper_talisman": "The Reaper's Talisman",
 	"item.ashfall.lesser_reaper_scythe": "Lesser Reaper's Scythe",
+	"item.ashfall.greater_reaper_scythe": "Greater Reaper's Scythe",
+	"item.ashfall.arch_reaper_scythe": "Arch Reaper's Scythe",
 
 	"block.ashfall.mortar_n_pestle": "Mortar N' Pestle",
+
 	"block.ashfall.celestial_lance": "Celestial Lance",
 	"block.ashfall.warding_pillar": "Pillars Of Warding",
-	"block.ashfall.accumulator": "Accumulator",
+	"block.ashfall.accumulator": "Attribute Accumulator",
 	"block.ashfall.focusing_stone": "Focusing Stone",
+
+	"block.ashfall.resilirite_block": "Block Of Resilirite",
+	"block.ashfall.assimilated_resilirite_block": "Block Of Assimilated Resilirite",
 
 	"enchantment.ashfall.harvest": "Harvest",
 	"enchantment.ashfall.dread": "Dread",
@@ -61,37 +71,43 @@
 	"item.minecraft.splash_potion.effect.combustion": "Combustible Splash Potion",
 	"item.minecraft.potion.effect.combustion": "Potion Of Combustion",
 	"item.minecraft.lingering_potion.effect.combustion": "Lingering Potion Of Flammability",
+
 	"effect.ashfall.paralysis": "Paralysis",
 	"effect.ashfall.paralysis.description": "Inhibits movement and access to the inventory.",
+
 	"item.minecraft.tipped_arrow.effect.paralysis": "Arrow of Paralysis",
 	"item.minecraft.splash_potion.effect.paralysis": "Paralytic Splash Potion",
 	"item.minecraft.potion.effect.paralysis": "Paralytic Potion",
 	"item.minecraft.lingering_potion.effect.paralysis": "Paralytic Lingering Potion",
+
 	"item.minecraft.tipped_arrow.effect.long_paralysis": "Arrow of Extended Paralysis",
 	"item.minecraft.splash_potion.effect.long_paralysis": "Extended Paralytic Splash Potion",
 	"item.minecraft.potion.effect.long_paralysis": "Extended Paralytic Potion",
 	"item.minecraft.lingering_potion.effect.long_paralysis": "Extended Paralytic Lingering Potion",
+
 	"effect.ashfall.warden_touch": "Warden's Touch",
 	"effect.ashfall.warden_touch.description": "Enhances the impacted being, and provides immunity to a Warden's Darkness.",
+
 	"item.minecraft.tipped_arrow.effect.warden_touch": "Arrow of Warden's Touch",
 	"item.minecraft.splash_potion.effect.warden_touch": "Splash Potion of Warden's Touch",
 	"item.minecraft.potion.effect.warden_touch": "Potion of Warden's Touch",
 	"item.minecraft.lingering_potion.effect.warden_touch": "Lingering Potion Of Warden's Touch",
+
 	"item.minecraft.tipped_arrow.effect.long_warden_touch": "Extended Arrow of Warden's Touch",
 	"item.minecraft.splash_potion.effect.long_warden_touch": "Extended Splash Potion of Warden's Touch",
 	"item.minecraft.potion.effect.long_warden_touch": "Extended Potion of Warden's Touch",
 	"item.minecraft.lingering_potion.effect.long_warden_touch": "Extended Lingering Potion Of Warden's Touch",
+
 	"item.minecraft.tipped_arrow.effect.strong_warden_touch": "Exhanced Arrow of Warden's Touch",
 	"item.minecraft.splash_potion.effect.strong_warden_touch": "Exhanced Splash Potion of Warden's Touch",
 	"item.minecraft.potion.effect.strong_warden_touch": "Exhanced Potion of Warden's Touch",
 	"item.minecraft.lingering_potion.effect.strong_warden_touch": "Exhanced Lingering Potion Of Warden's Touch",
 
-
-
 	"item.minecraft.tipped_arrow.effect.hero_of_the_village": "Arrow of The Village Hero",
 	"item.minecraft.splash_potion.effect.hero_of_the_village": "Heroic Splash Potion",
 	"item.minecraft.potion.effect.hero_of_the_village": "Heroic Potion",
 	"item.minecraft.lingering_potion.effect.hero_of_the_village": "Lingering Heroic Potion",
+
 	"item.minecraft.tipped_arrow.effect.long_hero_of_the_village": "Extended Arrow of The Village Hero",
 	"item.minecraft.splash_potion.effect.long_hero_of_the_village": "Extended Heroic Splash Potion",
 	"item.minecraft.potion.effect.long_hero_of_the_village": "Extended Heroic Potion",
@@ -101,6 +117,7 @@
 	"item.minecraft.splash_potion.effect.wither": "Splash Potion of Decay",
 	"item.minecraft.potion.effect.wither": "Potion of Decay",
 	"item.minecraft.lingering_potion.effect.wither": "Lingering Potion of Decay",
+
 	"item.minecraft.tipped_arrow.effect.long_wither": "Arrow of Extended Decay",
 	"item.minecraft.splash_potion.effect.long_wither": "Splash Potion of Extended Decay",
 	"item.minecraft.potion.effect.long_wither": "Potion of Extended Decay",
