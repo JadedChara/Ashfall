@@ -5,55 +5,60 @@ import io.github.jadedchara.ashfall.common.block.utility.FocusingStoneBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
-import java.util.ArrayList;
 
 public class AccumulatorBlockEntity extends BlockEntity {
-    public ArrayList<Block> powerblocks = new ArrayList<>();
-    public int power;
+    public int power = 0;
 
-    public AccumulatorBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockRegistry.ACCUMULATOR_BLOCK_ENTITY,pos, state);
-
+    public AccumulatorBlockEntity(BlockPos p, BlockState state) {
+        super(BlockRegistry.ACCUMULATOR_BLOCK_ENTITY,p, state);
+        this.getPos();
+        this.markDirty();
     }
 
-    public int defineAbility(){
+    public int defineAbility(World w, BlockPos bp){
         if(
                 //Redstone
-                   this.getWorld().getBlockState(pos.add(1,0,0)).getBlock() instanceof RedstoneBlock
-                && this.getWorld().getBlockState(pos.add(-1,0,0)).getBlock() instanceof RedstoneBlock
-                && this.getWorld().getBlockState(pos.add(0,0,1)).getBlock() instanceof RedstoneBlock
-                && this.getWorld().getBlockState(pos.add(0,0,-1)).getBlock() instanceof RedstoneBlock
+                   this.getWorld().getBlockState(this.pos.add(1,0,0)).getBlock().equals(Blocks.REDSTONE_BLOCK)
+                && this.getWorld().getBlockState(this.pos.add(-1,0,0)).getBlock().equals(Blocks.REDSTONE_BLOCK)
+                && this.getWorld().getBlockState(this.pos.add(0,0,1)).getBlock().equals(Blocks.REDSTONE_BLOCK)
+                && this.getWorld().getBlockState(this.pos.add(0,0,-1)).getBlock().equals(Blocks.REDSTONE_BLOCK)
                 //Focusing Stone
-                && this.getWorld().getBlockState(pos.add(0,-1,0)).getBlock() instanceof FocusingStoneBlock
+                && this.getWorld().getBlockState(bp).getBlock().equals(BlockRegistry.FOCUSING_STONE_BLOCK)
         ){
-            if(((FocusingStoneBlock) this.getWorld().getBlockState(pos.add(0,-1,0)).getBlock()).getPower() == 0){
+            if(((FocusingStoneBlock) this.getWorld().getBlockState(bp).getBlock()).getPower(w,bp) == 0){
                 this.getWorld().playSound(
-                        (double) pos.getX(),
-                        (double) pos.getY(),
-                        (double) pos.getZ(),
+                        (double) this.pos.getX(),
+                        (double) this.pos.getY(),
+                        (double) this.pos.getZ(),
                         SoundEvents.BLOCK_BEACON_DEACTIVATE,
                         SoundCategory.NEUTRAL,
                         0.5F,
                         0.5F,
                         false
                 );
-            }else{
-
             }
-            this.power = ((FocusingStoneBlock) this.getWorld().getBlockState(pos.add(0,-1,0)).getBlock()).getPower();
+            this.power =
+                    ((FocusingStoneBlock) this
+                            .getWorld()
+                            .getBlockState(bp)
+                            .getBlock())
+                            .getPower(w,bp);
             this.markDirty();
-            return (((FocusingStoneBlock) this.getWorld().getBlockState(pos.add(0,-1,0)).getBlock()).getPower());
+            //w.updateListeners(bp,this.getCachedState(),this.getCachedState(),0);
+            return (((FocusingStoneBlock) this
+                    .getWorld()
+                    .getBlockState(bp)
+                    .getBlock())
+                    .getPower(w,bp));
+        }else{
+            return 0;
         }
-        //
-
-        return 0;
     }
     @Override
     public void writeNbt(NbtCompound nbt) {

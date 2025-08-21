@@ -16,19 +16,6 @@ public class GreaterReaperScythe extends LesserReaperScythe{
 
     public GreaterReaperScythe(ToolMaterials material,int ad,float as,Settings settings) {
         super(material,ad,as,settings);
-        NbtCompound tx = this.getDefaultStack().getOrCreateSubNbt("localX");
-        NbtCompound ty = this.getDefaultStack().getOrCreateSubNbt("localY");
-        NbtCompound tz = this.getDefaultStack().getOrCreateSubNbt("localZ");
-        try{
-            this.savedLocale = new BlockPos(
-                    tx.getInt("localX"),
-                    ty.getInt("localY"),
-                    tz.getInt("localZ")
-
-            );
-        }catch(Exception e){
-            //
-        }
         this.attackDamage = ad;
         this.attackSpeed = as;
         this.effectDuration = 1200;

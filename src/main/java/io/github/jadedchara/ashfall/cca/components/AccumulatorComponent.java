@@ -4,8 +4,12 @@ import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import io.github.jadedchara.ashfall.cca.ComponentInit;
 import io.github.jadedchara.ashfall.common.block.blockentity.AccumulatorBlockEntity;
+import io.github.jadedchara.ashfall.common.block.blockentity.FocusingStoneBlockEntity;
 import io.github.jadedchara.ashfall.common.block.blockentity.MortarNPestleBlockEntity;
+import net.minecraft.block.Block;
 import net.minecraft.nbt.NbtCompound;
+
+import java.util.ArrayList;
 
 public class AccumulatorComponent implements Component, AutoSyncedComponent {
     private int value = 0;
@@ -25,8 +29,8 @@ public class AccumulatorComponent implements Component, AutoSyncedComponent {
         return false;
     }
 
-    public void setValue(int val, AccumulatorBlockEntity provider){
-        this.value = val;
+    public void setValue(ArrayList<Block> val, FocusingStoneBlockEntity provider){
+        this.value = 0;
         //provider.setStatus(val);
         ComponentInit.MNP.sync(provider);
     }
